@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="156dp"
+    android:layout_height="128dp"
+    app:cardBackgroundColor="#F4F6F8"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp">
+
+    <ImageView
+        android:id="@+id/imv_product"
+        android:layout_width="66dp"
+        android:layout_height="88dp"
+        android:background="@drawable/shirt_image"
+        android:layout_gravity="center"
+        ></ImageView>
+
+</com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:text="Phones"
+        android:layout_gravity="start"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:lineSpacingExtra="-5sp"
+        android:fontFamily="@font/inter_semi_bold"
+        android:textColor="#222222"
+        android:maxLines="1"
+        android:ellipsize="end"
+        ></TextView>
+
+
+    <TextView
+        android:id="@+id/tv_product_price"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:text="NGN 46,000"
+        android:layout_gravity="start"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:lineSpacingExtra="-5sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="#828282"
+        android:maxLines="1"
+        android:ellipsize="end"
+        ></TextView>
+
+
+</LinearLayout>

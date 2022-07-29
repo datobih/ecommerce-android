@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/ll_main_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="E-shop"
+
+            android:textColor="#222222"
+            android:textSize="21sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:text="5,000+ products and categories."
+
+            android:textColor="#222222"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toLeftOf="@id/imb_liked"
+        app:layout_constraintTop_toTopOf="@id/ll_main_header"
+        app:layout_constraintBottom_toBottomOf="@id/ll_main_header"
+        android:background="@drawable/ic_bxs_cart_svg"
+
+        ></ImageButton>
+
+    <ImageButton
+        android:id="@+id/imb_liked"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ll_main_header"
+        app:layout_constraintBottom_toBottomOf="@id/ll_main_header"
+        android:background="@drawable/ic_bxs_heart_svg"
+        ></ImageButton>
+
+
+    <EditText
+        android:id="@+id/et_search_item"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_main_header"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/imb_search_filter"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/text_input_bg"
+        android:hint="Search products, brands..."
+        android:textColorHint="#B3828282"
+        android:fontFamily="@font/inter_regular"
+        android:textSize="12sp"
+        android:drawableLeft="@drawable/search_drawable"
+        android:paddingLeft="20dp"
+
+        ></EditText>
+
+    <ImageButton
+        android:id="@+id/imb_search_filter"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="23dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/et_search_item"
+        app:layout_constraintBottom_toBottomOf="@id/et_search_item"
+        android:background="@drawable/filter_search_icon"
+
+        ></ImageButton>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/et_search_item"
+        tools:listitem="@layout/item_category"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_sales"
+        android:layout_width="match_parent"
+        android:layout_height="166dp"
+        app:layout_constraintTop_toBottomOf="@id/rv_categories"
+
+        ></androidx.viewpager2.widget.ViewPager2>
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:id="@+id/ll_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="11dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/vp_sales"
+android:gravity="center"
+        android:layout_marginTop="12dp"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dot_indicator1"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="20dp"
+            android:layout_marginRight="8dp"
+            >
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dot_indicator2"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            app:cardBackgroundColor="#D9D9D9"
+            app:cardCornerRadius="20dp"
+
+            >
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dot_indicator3"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            app:cardBackgroundColor="#D9D9D9"
+            app:cardCornerRadius="20dp"
+            android:layout_marginLeft="8dp"
+            >
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_products"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_indicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_product"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

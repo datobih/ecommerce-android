@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/category_item"
+
+        >
+
+        <ImageView
+            android:id="@+id/category_image"
+            android:layout_width="42dp"
+            android:layout_height="59dp"
+            android:background="@drawable/iphone13"
+            android:layout_gravity="center"
+            ></ImageView>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phones"
+        android:layout_gravity="center"
+        android:textSize="12sp"
+        android:lineSpacingExtra="9sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="#18191F"
+        ></TextView>
+
+</LinearLayout>

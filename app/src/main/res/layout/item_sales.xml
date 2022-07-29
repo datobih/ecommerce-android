@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        app:cardBackgroundColor="#F4F6F8"
+        android:layout_marginHorizontal="20dp"
+        app:cardCornerRadius="8dp"
+        android:elevation="0dp"
+        app:cardElevation="3dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            >
+            <TextView
+                android:id="@+id/tv_sales_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="40% off"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="34dp"
+                android:textColor="#222222"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_on_select_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="on select sales"
+                android:layout_marginLeft="16dp"
+
+                android:textColor="#828282"
+                android:textSize="12sp"
+                android:layout_below="@id/tv_sales_condition"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="88dp"
+                android:layout_height="24dp"
+                android:layout_below="@id/tv_on_select_sales"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/sales_button_bg"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="Shop Now"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="10sp"></androidx.appcompat.widget.AppCompatButton>
+
+
+            <ImageView
+                android:id="@+id/imv_sale"
+                android:layout_width="196dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/sales_discount_image"
+
+                ></ImageView>
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

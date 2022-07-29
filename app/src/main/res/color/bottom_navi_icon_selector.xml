@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_checked="true" android:color="#222222"
+        android:fontFamily="@font/inter_medium">
+
+
+
+</item>
+
+<item android:state_checked="false" android:color="#828282"
+    android:fontFamily="@font/inter_medium"></item>
+
+
+</selector>
