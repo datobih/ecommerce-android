@@ -35,7 +35,7 @@
         android:lineSpacingExtra="-5sp"
         android:fontFamily="@font/inter_semi_bold"
         android:textColor="#222222"
-        android:maxLines="1"
+        android:singleLine="true"
         android:ellipsize="end"
         ></TextView>
 

@@ -36,19 +36,19 @@ android:layout_alignParentBottom="true"
         >
 
         <TextView
-            android:id="@+id/tv_cart_total"
+            android:id="@+id/tvl_cart_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total price"
             android:layout_gravity="start"
-            android:layout_marginTop="21dp"
             android:layout_marginLeft="24dp"
-            android:textSize="14sp"
-            android:lineSpacingExtra="-5sp"
-            android:fontFamily="@font/inter_medium"
-            android:textColor="#828282"
-            android:maxLines="1"
+            android:layout_marginTop="21dp"
             android:ellipsize="end"
+            android:fontFamily="@font/inter_medium"
+            android:lineSpacingExtra="-5sp"
+            android:maxLines="1"
+            android:text="Total price"
+            android:textColor="#828282"
+            android:textSize="14sp"
 
             ></TextView>
 
@@ -67,7 +67,7 @@ android:layout_alignParentBottom="true"
             android:textColor="#222222"
             android:maxLines="1"
             android:ellipsize="end"
-android:layout_below="@id/tv_cart_total"
+android:layout_below="@id/tvl_cart_total"
             ></TextView>
 
 

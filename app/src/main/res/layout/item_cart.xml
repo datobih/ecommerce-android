@@ -40,7 +40,7 @@
         android:lineSpacingExtra="-5sp"
         android:fontFamily="@font/inter_medium"
         android:textColor="#828282"
-        android:maxLines="1"
+        android:singleLine="true"
         android:ellipsize="end"
 
         app:layout_constraintTop_toTopOf="@id/card_product"
@@ -60,7 +60,7 @@
         android:lineSpacingExtra="-5sp"
         android:fontFamily="@font/inter_bold"
         android:textColor="#222222"
-        android:maxLines="1"
+        android:singleLine="true"
         android:ellipsize="end"
 
         app:layout_constraintTop_toBottomOf="@id/tv_product_name"
