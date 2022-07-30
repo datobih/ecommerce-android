@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CartFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="My Cart"
+        android:textColor="#222222"
+        android:textSize="20sp"></TextView>
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/search_icon"
+        android:layout_marginTop="21dp"
+        android:layout_marginRight="23dp"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#222222"
+        ></ImageButton>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+android:layout_alignParentBottom="true"
+        android:background="#F4F6F8"
+
+        >
+
+        <TextView
+            android:id="@+id/tv_cart_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total price"
+            android:layout_gravity="start"
+            android:layout_marginTop="21dp"
+            android:layout_marginLeft="24dp"
+            android:textSize="14sp"
+            android:lineSpacingExtra="-5sp"
+            android:fontFamily="@font/inter_medium"
+            android:textColor="#828282"
+            android:maxLines="1"
+            android:ellipsize="end"
+
+            ></TextView>
+
+
+        <TextView
+            android:id="@+id/tv_cart_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NGN2,660,000"
+            android:layout_gravity="start"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="24dp"
+            android:textSize="16sp"
+            android:lineSpacingExtra="-5sp"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="#222222"
+            android:maxLines="1"
+            android:ellipsize="end"
+android:layout_below="@id/tv_cart_total"
+            ></TextView>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/checkout_btn_bg"
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="12dp"
+            android:text="Checkout"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_bold"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            ></androidx.appcompat.widget.AppCompatButton>
+
+    </RelativeLayout>
+
+</RelativeLayout>
