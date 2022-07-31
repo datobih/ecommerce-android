@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/ll_product_image"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="#F4F6F8"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+        <ImageButton
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+
+            ></ImageButton>
+
+        <ImageView
+            android:id="@+id/category_image"
+            android:layout_width="148.34dp"
+            android:layout_height="210dp"
+            android:background="@drawable/iphone13"
+            android:layout_centerInParent="true"
+            ></ImageView>
+
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="24dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="iPhone 13 pro"
+        android:textColor="#222222"
+        android:textSize="24sp"
+app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/ll_product_image"></TextView>
+
+    <TextView
+        android:id="@+id/tv_product_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="60dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="Apple iPhone 13 pro designed to last by the best."
+        android:textColor="#828282"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/tv_product_name"></TextView>
+
+    <ImageView
+        android:id="@+id/imv_star1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_round_star_yellow_24"
+        android:layout_marginTop="12dp"
+
+        app:layout_constraintLeft_toLeftOf="@id/tv_product_desc"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_desc"
+        ></ImageView>
+
+
+    <ImageView
+        android:id="@+id/imv_star2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_round_star_yellow_24"
+        android:layout_marginTop="12dp"
+android:layout_marginLeft="1dp"
+        app:layout_constraintLeft_toRightOf="@id/imv_star1"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_desc"
+        ></ImageView>
+
+    <ImageView
+        android:id="@+id/imv_star3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_round_star_yellow_24"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="1dp"
+        app:layout_constraintLeft_toRightOf="@id/imv_star2"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_desc"
+        ></ImageView>
+
+
+
+    <ImageView
+        android:id="@+id/imv_star4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_round_star_yellow_24"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="1dp"
+        app:layout_constraintLeft_toRightOf="@id/imv_star3"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_desc"
+        ></ImageView>
+
+
+    <ImageView
+        android:id="@+id/imv_star5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_round_star_yellow_24"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="1dp"
+        app:layout_constraintLeft_toRightOf="@id/imv_star4"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_desc"
+        ></ImageView>
+
+
+    <TextView
+        android:id="@+id/tv_rating_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="4.5"
+        android:fontFamily="@font/inter_semi_bold"
+        android:textColor="#222222"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="2dp"
+        app:layout_constraintLeft_toRightOf="@id/imv_star5"
+        app:layout_constraintTop_toTopOf="@id/imv_star5"
+        app:layout_constraintBottom_toBottomOf="@id/imv_star5"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/tv_rating_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="(2,500 reviews)"
+        android:fontFamily="@font/inter_regular"
+        android:textColor="#828282"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="3dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_rating_value"
+        app:layout_constraintTop_toTopOf="@id/imv_star5"
+        app:layout_constraintBottom_toBottomOf="@id/imv_star5"
+        ></TextView>
+
+
+    <TextView
+        android:id="@+id/tv_product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="NGN 646,000"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="#222222"
+        android:textSize="24sp"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="3dp"
+        app:layout_constraintLeft_toLeftOf="@id/imv_star1"
+        app:layout_constraintTop_toBottomOf="@id/imv_star1"
+
+        ></TextView>
+
+
+    <View
+        android:id="@+id/line_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#F1F1F1"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_price"
+        />
+
+    <TextView
+        android:id="@+id/tvl_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Quantity"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="#222222"
+        android:textSize="18sp"
+        android:layout_marginTop="31dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_1"
+
+        ></TextView>
+
+    <RelativeLayout
+        android:id="@+id/ll_item_count"
+        android:layout_width="102dp"
+        android:layout_height="32dp"
+        android:background="@drawable/ic_plus_minus_btn_bg"
+
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvl_quantity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <ImageButton
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_thick_minus"
+            ></ImageButton>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:background="#F4F6F8"
+            android:layout_centerInParent="true"
+            android:paddingHorizontal="5dp"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="2"
+                android:textSize="17sp"
+                android:textColor="#222222"
+                android:fontFamily="@font/inter_bold"
+                android:paddingHorizontal="8dp"
+                ></TextView>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/ic_thick_plus"
+
+            ></ImageButton>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="17dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/cart_btn_bg"
+        android:fontFamily="@font/inter_bold"
+        android:text="Add to cart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/ll_item_count"></androidx.appcompat.widget.AppCompatButton>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
