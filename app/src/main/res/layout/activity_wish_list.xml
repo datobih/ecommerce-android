@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WishListActivity">
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/ic_baseline_arrow_back_24"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="23dp"
+        android:layout_alignParentLeft="true"
+        android:backgroundTint="#222222"
+        ></ImageButton>
+
+
+    <TextView
+        android:id="@+id/tvl_wishlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="My Wishlist"
+        android:textColor="#222222"
+        android:textSize="20sp"></TextView>
+
+    <ImageButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/search_icon"
+        android:layout_marginTop="21dp"
+        android:layout_marginRight="23dp"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#222222"
+        ></ImageButton>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_wish_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+tools:listitem="@layout/item_wish_category"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvl_wishlist"
+android:layout_marginTop="24dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_wish_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_wish_product"
+        app:spanCount="2"
+        android:layout_below="@id/rv_wish_categories"
+        android:layout_marginTop="23dp"
+        android:paddingLeft="22dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+</RelativeLayout>

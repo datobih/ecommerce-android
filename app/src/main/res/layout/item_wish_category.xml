@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:background="@drawable/btn_wish_border_bg"
+        android:text="All"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/inter_semi_bold"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        ></androidx.appcompat.widget.AppCompatButton>
+
+
+</LinearLayout>

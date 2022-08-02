@@ -34,16 +34,7 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toLeftOf="@id/imb_liked"
-        app:layout_constraintTop_toTopOf="@id/ll_main_header"
-        app:layout_constraintBottom_toBottomOf="@id/ll_main_header"
-        android:background="@drawable/ic_bxs_cart_svg"
 
-        ></ImageButton>
 
     <ImageButton
         android:id="@+id/imb_liked"
