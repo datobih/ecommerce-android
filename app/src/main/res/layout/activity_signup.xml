@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SignupActivity">
+
+
+
+    <TextView
+        android:id="@+id/tvl_get_things"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="Sign up"
+        android:textColor="@color/theme_text_black"
+        android:textSize="35sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        ></TextView>
+
+
+    <TextView
+        android:id="@+id/tvl_lets_meet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semi_bold"
+        android:gravity="center"
+        android:letterSpacing="0.06"
+        android:text="Buy products from variety of \ncategories offer"
+        android:layout_marginTop="10dp"
+        android:textColor="#BD000000"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvl_get_things"
+
+        ></TextView>
+
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/text_input_bg"
+        android:drawableTint="@color/black"
+        android:fontFamily="@font/inter_regular"
+        android:hint="Whats your name"
+        android:letterSpacing="0.06"
+        android:paddingVertical="13dp"
+        android:paddingStart="20dp"
+        android:textColorHint="#B3000000"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:maxLines="1"
+android:textColor="@color/theme_text_black"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvl_lets_meet"></EditText>
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/text_input_bg"
+        android:drawableTint="@color/black"
+        android:fontFamily="@font/inter_regular"
+        android:hint="Enter your email"
+        android:letterSpacing="0.06"
+        android:paddingVertical="13dp"
+        android:paddingStart="20dp"
+        android:textColorHint="#B3000000"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:textSize="13sp"
+        android:textColor="@color/theme_text_black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_name"></EditText>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/text_input_bg"
+        android:drawableTint="@color/theme_text_black"
+        android:fontFamily="@font/inter_regular"
+        android:hint="Enter password"
+        android:letterSpacing="0.06"
+        android:paddingVertical="13dp"
+        android:paddingStart="20dp"
+        android:textColorHint="#B3000000"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:textSize="13sp"
+        android:textColor="@color/theme_text_black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_email"
+        android:inputType="textPassword"></EditText>
+
+    <EditText
+        android:id="@+id/et_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/text_input_bg"
+        android:drawableTint="@color/theme_text_black"
+        android:fontFamily="@font/inter_regular"
+        android:hint="Confirm password"
+        android:letterSpacing="0.06"
+        android:paddingVertical="13dp"
+        android:paddingStart="20dp"
+        android:imeOptions="actionDone"
+        android:textColorHint="#B3000000"
+android:textColor="@color/theme_text_black"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_password"
+        android:inputType="textPassword"></EditText>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/cart_btn_bg"
+        android:fontFamily="@font/inter_semi_bold"
+        android:letterSpacing="0.06"
+       android:layout_marginHorizontal="17dp"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_confirm_password">
+
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_register"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="21dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account ?"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/theme_text_black"
+            android:letterSpacing="0.06"
+            android:textSize="14sp"
+            ></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Sign up"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/theme_text_black"
+            android:letterSpacing="0.06"
+
+            android:textSize="14sp"
+            ></TextView>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

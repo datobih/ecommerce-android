@@ -23,6 +23,23 @@ class PaymentActivity : AppCompatActivity() {
         val transitionUp= AnimationUtils.loadAnimation(this,R.anim.transition_up)
         val transitionDown= AnimationUtils.loadAnimation(this,R.anim.transition_down)
 
+        transitionUp.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(p0: Animation?) {
+                binding.btnPayWithProfile.isClickable=false
+            }
+
+            override fun onAnimationEnd(p0: Animation?) {
+
+
+            }
+
+            override fun onAnimationRepeat(p0: Animation?) {
+
+            }
+
+        })
+
+
         transitionDown.setAnimationListener(object : Animation.AnimationListener{
             override fun onAnimationStart(p0: Animation?) {
                 binding.greyFilter.isClickable=false
@@ -30,6 +47,7 @@ class PaymentActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(p0: Animation?) {
                 binding.greyFilter.isClickable=true
+                binding.btnPayWithProfile.isClickable=true
                 binding.llConfirmPaymentScene.visibility= View.GONE
             }
 

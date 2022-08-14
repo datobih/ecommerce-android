@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <TextView
+            android:id="@+id/tvl_welcome_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semi_bold"
+            android:gravity="center"
+            android:text="Welcome to"
+            android:textColor="@color/theme_text_black"
+            android:textSize="21sp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+
+            ></TextView>
+
+
+        <TextView
+            android:id="@+id/tvl_our_reminder_reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="center"
+
+            android:text="E-commerce App"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/theme_text_black"
+            android:textSize="35sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvl_welcome_back"
+
+            ></TextView>
+
+
+        <EditText
+            android:id="@+id/et_sign_in_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/text_input_bg"
+            android:drawableTint="@color/black"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Enter your email"
+            android:letterSpacing="0.06"
+            android:paddingVertical="13dp"
+            android:paddingStart="20dp"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:textColorHint="#B3000000"
+            android:textColor="@color/theme_text_black"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvl_our_reminder_reg"></EditText>
+
+        <EditText
+            android:id="@+id/et_sign_in_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/text_input_bg"
+            android:drawableTint="@color/theme_text_black"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Enter password"
+            android:letterSpacing="0.06"
+            android:paddingVertical="13dp"
+            android:paddingStart="20dp"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:textColorHint="#B3000000"
+            android:textColor="@color/theme_text_black"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_sign_in_email"></EditText>
+
+
+        <TextView
+            android:id="@+id/tvl_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semi_bold"
+            android:gravity="center"
+            android:text="Forgot Password"
+            android:textColor="@color/theme_text_black"
+            android:textSize="14sp"
+            android:letterSpacing="0.06"
+            android:layout_marginTop="14dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_sign_in_password"
+
+
+            ></TextView>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/cart_btn_bg"
+            android:fontFamily="@font/inter_bold"
+            android:letterSpacing="0.06"
+            android:paddingHorizontal="70dp"
+            android:text="Sign in"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvl_forgot_password">
+
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/btn_sign_in"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="21dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have an account ?"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/theme_text_black"
+                android:letterSpacing="0.06"
+                android:textSize="14sp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tv_sign_up_intent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Sign up"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="#222222"
+                android:letterSpacing="0.06"
+
+                android:textSize="14sp"
+                ></TextView>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/ll_signIn_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="#8B000000"
+            android:clickable="true"
+            ></View>
+
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminateTint="@color/theme_text_black"
+            android:layout_centerInParent="true"
+            ></ProgressBar>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,7 +107,7 @@
             android:layout_height="match_parent"
 
             android:layout_above="@id/ll_confirm_payment"
-            android:background="#8B000000"
+            android:background="#72333333"
             android:clickable="true"
             ></View>
 
