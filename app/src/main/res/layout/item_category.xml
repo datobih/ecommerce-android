@@ -16,7 +16,7 @@
             android:id="@+id/category_image"
             android:layout_width="42dp"
             android:layout_height="59dp"
-            android:background="@drawable/iphone13"
+
             android:layout_gravity="center"
             ></ImageView>
 

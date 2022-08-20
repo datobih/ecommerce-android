@@ -1,8 +1,10 @@
 package com.example.e_commerceapp
 
 object Constants {
-    val SHARED_PREFERENCE_NAME="com.example.e_commerceapp.sharedpreference"
+    val SHARED_PREFERENCE_NAME = "com.example.e_commerceapp.sharedpreference"
+    val SHARED_PREFERENCE_TOKEN_ACCESS = "SHARED_PREFERENCE_TOKEN_ACCESS"
+    val SHARED_PREFERENCE_TOKEN_REFRESH = "SHARED_PREFERENCE_TOKEN_REFRESH"
+    val SHARED_PREFERENCE_USER_DATA = "SHARED_PREFERENCE_USER_DATA"
 
-
-
+    val INTENT_EXTRA_PRODUCT_ID = "INTENT_EXTRA_PRODUCT_ID"
 }

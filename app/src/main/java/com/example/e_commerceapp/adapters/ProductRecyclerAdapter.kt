@@ -4,12 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.e_commerceapp.databinding.ItemProductBinding
 import com.example.e_commerceapp.models.Product
+import com.example.e_commerceapp.utils.ProductOnClickListener
 
-class ProductRecyclerAdapter(val productList: ArrayList<Product>):
+class ProductRecyclerAdapter(val context: Context,val productList: ArrayList<Product>):
 RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>(){
-
+private var productOnClickListener:ProductOnClickListener?= null
 
     class ProductViewHolder(val binding:ItemProductBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -22,18 +24,29 @@ RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>(){
         with(holder){
             with(productList[position]){
                 binding.tvProductName.text=title
-                binding.tvProductPrice.text=price
-                binding.imvProduct.setImageResource(image)
+                binding.tvProductPrice.text="NGN ${price}"
+
+                Glide.with(context)
+                    .load("http://10.0.2.2:8000${images[0]}")
+                    .into(binding.imvProduct)
 
 
             }
 
+holder.binding.root.setOnClickListener {
 
+    productOnClickListener?.onClick(productList[position].id)
+
+}
         }
 
 
 
     }
+
+fun setProductOnClickListener(productOnClickListener: ProductOnClickListener){
+    this.productOnClickListener=productOnClickListener
+}
 
     override fun getItemCount(): Int {
         return productList.size

@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/imv_product"
-        android:layout_width="66dp"
-        android:layout_height="88dp"
-        android:background="@drawable/shirt_image"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+
         android:layout_gravity="center"
         ></ImageView>
 

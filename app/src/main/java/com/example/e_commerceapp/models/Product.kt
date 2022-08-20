@@ -1,3 +1,12 @@
 package com.example.e_commerceapp.models
 
-data class Product(val title:String,val price:String,val image:Int)
+class Product(
+    val id:Int,
+    val title: String,
+    val description:String,
+    val price: String,
+    val images: List<String>,
+    val discount:Int,
+    val category: String,
+    val vendor:String
+)

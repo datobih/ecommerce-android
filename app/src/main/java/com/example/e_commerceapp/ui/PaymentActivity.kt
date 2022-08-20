@@ -1,16 +1,11 @@
-package com.example.e_commerceapp
+package com.example.e_commerceapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.transition.Scene
-import android.transition.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.transition.ChangeBounds
-import androidx.transition.Transition
-import androidx.transition.TransitionInflater
-import androidx.transition.TransitionManager
+import com.example.e_commerceapp.R
 import com.example.e_commerceapp.databinding.ActivityPaymentBinding
 
 class PaymentActivity : AppCompatActivity() {
@@ -20,8 +15,8 @@ class PaymentActivity : AppCompatActivity() {
         binding=ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val transitionUp= AnimationUtils.loadAnimation(this,R.anim.transition_up)
-        val transitionDown= AnimationUtils.loadAnimation(this,R.anim.transition_down)
+        val transitionUp= AnimationUtils.loadAnimation(this, R.anim.transition_up)
+        val transitionDown= AnimationUtils.loadAnimation(this, R.anim.transition_down)
 
         transitionUp.setAnimationListener(object : Animation.AnimationListener{
             override fun onAnimationStart(p0: Animation?) {

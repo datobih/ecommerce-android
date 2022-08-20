@@ -57,6 +57,7 @@
             android:background="@drawable/text_input_bg"
             android:drawableTint="@color/black"
             android:fontFamily="@font/inter_regular"
+            android:inputType="textEmailAddress"
             android:hint="Enter your email"
             android:letterSpacing="0.06"
             android:paddingVertical="13dp"
