@@ -6,6 +6,7 @@ import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.Token
 import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.retrofit.EcommerceRetrofit
+import com.example.e_commerceapp.retrofit.dto.AddToCartDTO
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
 import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
 import com.example.e_commerceapp.utils.DataState
@@ -61,6 +62,16 @@ class MainRepository(
 
 
     }
+
+    fun addProductToCart(tokenHeader: String,addToCartDTO: AddToCartDTO)=flow<DataState<Void?>>{
+        emit(DataState.Loading())
+        val response=ecommerceRetrofit.addProductToCart(tokenHeader,addToCartDTO).awaitResponse()
+        if(response.isSuccessful) emit(DataState.Success(null))
+        else emit(DataState.Error())
+
+
+    }
+
 
     fun getUserProfile(tokenVal:String)= flow<DataState<User>> {
         emit(DataState.Loading())

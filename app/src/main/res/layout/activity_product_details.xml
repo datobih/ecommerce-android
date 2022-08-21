@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-android:visibility="gone"
+
         >
 
     <androidx.viewpager2.widget.ViewPager2
@@ -70,7 +70,7 @@ app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/imv_star1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_star_yellow_24"
+        android:background="@drawable/ic_round_star_grey_24"
         android:layout_marginTop="12dp"
 
         app:layout_constraintLeft_toLeftOf="@id/tv_product_desc"
@@ -82,7 +82,7 @@ app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/imv_star2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_star_yellow_24"
+        android:background="@drawable/ic_round_star_grey_24"
         android:layout_marginTop="12dp"
 android:layout_marginLeft="1dp"
         app:layout_constraintLeft_toRightOf="@id/imv_star1"
@@ -93,7 +93,7 @@ android:layout_marginLeft="1dp"
         android:id="@+id/imv_star3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_star_yellow_24"
+        android:background="@drawable/ic_round_star_grey_24"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="1dp"
         app:layout_constraintLeft_toRightOf="@id/imv_star2"
@@ -106,7 +106,7 @@ android:layout_marginLeft="1dp"
         android:id="@+id/imv_star4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_star_yellow_24"
+        android:background="@drawable/ic_round_star_grey_24"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="1dp"
         app:layout_constraintLeft_toRightOf="@id/imv_star3"
@@ -118,7 +118,7 @@ android:layout_marginLeft="1dp"
         android:id="@+id/imv_star5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_star_yellow_24"
+        android:background="@drawable/ic_round_star_grey_24"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="1dp"
         app:layout_constraintLeft_toRightOf="@id/imv_star4"
@@ -217,13 +217,13 @@ android:layout_marginLeft="1dp"
         >
 
         <ImageButton
+            android:id="@+id/btn_reduce_quantity"
             android:layout_width="22dp"
             android:layout_height="16dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/ic_thick_minus"
-            ></ImageButton>
+            android:background="@drawable/ic_thick_minus"></ImageButton>
 
 
         <LinearLayout
@@ -235,10 +235,11 @@ android:layout_marginLeft="1dp"
 
             >
             <TextView
+                android:id="@+id/tv_quantity_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="2"
+                android:text="0"
                 android:textSize="17sp"
                 android:textColor="#222222"
                 android:fontFamily="@font/inter_bold"
@@ -248,6 +249,7 @@ android:layout_marginLeft="1dp"
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/btn_add_quantity"
             android:layout_width="22dp"
             android:layout_height="16dp"
             android:layout_alignParentRight="true"
@@ -260,6 +262,7 @@ android:layout_marginLeft="1dp"
     </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add_to_cart"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_centerVertical="true"
@@ -295,5 +298,33 @@ android:layout_marginLeft="1dp"
         android:indeterminateTint="@color/theme_text_black"
         android:layout_gravity="center"
         ></ProgressBar>
+
+
+    <RelativeLayout
+        android:id="@+id/ll_adding_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+android:visibility="gone"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="#8B000000"
+            android:clickable="true"
+            ></View>
+
+
+        <ProgressBar
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:indeterminateTint="@color/theme_text_black"
+            android:layout_centerInParent="true"
+            ></ProgressBar>
+
+
+    </RelativeLayout>
 
 </FrameLayout>

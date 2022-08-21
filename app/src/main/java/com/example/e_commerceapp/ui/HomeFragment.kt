@@ -1,5 +1,6 @@
 package com.example.e_commerceapp.ui
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -35,6 +41,7 @@ class HomeFragment : Fragment() {
 
 lateinit var binding: FragmentHomeBinding
 lateinit var mContext: Context
+lateinit var startActivityIntent: ActivityResultLauncher<Intent>
 private  val mainViewModel:MainViewModel by activityViewModels()
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -62,6 +69,17 @@ private  val mainViewModel:MainViewModel by activityViewModels()
         val animZoomIn=AnimationUtils.loadAnimation(mContext,R.anim.zoom_in)
         val animZoomOut=AnimationUtils.loadAnimation(mContext,R.anim.zoom_out)
         var prevIndicator=binding.dotIndicator1
+
+
+        startActivityIntent=registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
+        object: ActivityResultCallback<ActivityResult>{
+            override fun onActivityResult(result: ActivityResult?) {
+                val parentActivity=(mContext as MainActivity)
+                if(result!!.resultCode==Constants.INTENT_SUCCESS_CART_RESULT_CODE){
+                    parentActivity.binding.bottomNavMain.selectedItemId=R.id.nav_cart
+                }
+            }
+        })
 
 
         mainViewModel.productsLiveData.observe(viewLifecycleOwner, Observer {
@@ -175,8 +193,8 @@ private  val mainViewModel:MainViewModel by activityViewModels()
                 val parentActivity=(mContext as MainActivity)
                 val intent=Intent(parentActivity,ProductDetailsActivity::class.java)
                 intent.putExtra(Constants.INTENT_EXTRA_PRODUCT_ID,productId)
-                startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(parentActivity).toBundle())
-
+//                startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(parentActivity).toBundle())
+                startActivityIntent.launch(intent,ActivityOptionsCompat.makeSceneTransitionAnimation(parentActivity))
             }
 
 

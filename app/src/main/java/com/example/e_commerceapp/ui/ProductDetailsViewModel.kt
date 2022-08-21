@@ -5,6 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.e_commerceapp.repository.MainRepository
+import com.example.e_commerceapp.retrofit.dto.AddToCartDTO
 import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
 import com.example.e_commerceapp.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,13 +21,27 @@ class ProductDetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     val productdetailLiveData: MutableLiveData<DataState<ProductDetailDTO>> = MutableLiveData()
+    val productAddCartLiveData:MutableLiveData<DataState<Void?>> = MutableLiveData()
 
     fun getProductDetail(tokenHeader: String, productId: Int) {
-
         viewModelScope.launch {
             repository.getProductDetail(tokenHeader, productId).collect { dataState ->
                 productdetailLiveData.value = dataState
             }
+        }
+    }
+
+    fun addProductToCart(tokenHeader: String,addToCartDTO: AddToCartDTO){
+        viewModelScope.launch {
+            repository.addProductToCart(tokenHeader,addToCartDTO).collect{
+                dataState->
+
+
+                productAddCartLiveData.value=dataState
+
+
+            }
+
 
         }
 
