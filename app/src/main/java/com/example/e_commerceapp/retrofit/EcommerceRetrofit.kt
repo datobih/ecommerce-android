@@ -4,12 +4,10 @@ import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.Token
 import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
+import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
 import com.example.e_commerceapp.retrofit.dto.SignupDTO
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface EcommerceRetrofit {
 
@@ -27,6 +25,10 @@ interface EcommerceRetrofit {
 
     @GET("products/all/")
     fun getProducts(@Header("AUTHORIZATION") tokenVal:String):Call<List<Product>>
+
+    @GET("products/product-detail/{PRODUCT_ID}/")
+    fun getProductDetail(@Header("AUTHORIZATION") tokenVal:String,
+                         @Path("PRODUCT_ID") productId:Int):Call<ProductDetailDTO>
 
 
 }

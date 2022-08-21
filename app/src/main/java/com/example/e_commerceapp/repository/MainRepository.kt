@@ -7,6 +7,7 @@ import com.example.e_commerceapp.models.Token
 import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.retrofit.EcommerceRetrofit
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
+import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.UserDataState
 import kotlinx.coroutines.flow.flow
@@ -49,6 +50,16 @@ class MainRepository(
         else{
             emit(DataState.Error())
         }
+    }
+
+    fun getProductDetail(tokenHeader: String,productId:Int)=flow<DataState<ProductDetailDTO>>{
+        emit(DataState.Loading())
+        val response=ecommerceRetrofit.getProductDetail(tokenHeader,productId).awaitResponse()
+        if(response.isSuccessful) emit(DataState.Success(response.body()))
+        else emit(DataState.Error())
+
+
+
     }
 
     fun getUserProfile(tokenVal:String)= flow<DataState<User>> {
