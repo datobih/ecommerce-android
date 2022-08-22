@@ -9,12 +9,14 @@ import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.repository.MainRepository
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
+import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.UserDataState
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.text.FieldPosition
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,6 +28,8 @@ class MainViewModel @Inject constructor(
     val userLiveData: MutableLiveData<UserDataState<String>> = MutableLiveData()
     val profileLiveData: MutableLiveData<DataState<User>> = MutableLiveData()
     val productsLiveData:MutableLiveData<DataState<List<Product>>> = MutableLiveData()
+    val cartItemsLiveData:MutableLiveData<DataState<List<OrderItemDTO>>> = MutableLiveData()
+    val removeOrderLiveData:MutableLiveData<DataState<Int>> = MutableLiveData()
 
     fun isUserLoggedIn() {
         viewModelScope.launch {
@@ -69,6 +73,33 @@ class MainViewModel @Inject constructor(
 
 
     }
+
+
+    fun getCart(tokenHeader: String){
+        viewModelScope.launch {
+            repository.getCart(tokenHeader).collect{
+                dataState->
+                cartItemsLiveData.value=dataState
+
+            }
+        }
+    }
+
+
+    fun removeOrder(tokenHeader: String,orderId:Int,itemPosition: Int){
+
+        viewModelScope.launch {
+
+            repository.removeOrder(tokenHeader,orderId,itemPosition).collect{
+                dataState->
+                removeOrderLiveData.value=dataState
+            }
+
+        }
+
+
+    }
+
 
     fun getUserTokenHeader(): String? {
 

@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.CartFragment">
 
     <TextView
+        android:id="@+id/tvl_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -14,7 +16,8 @@
         android:fontFamily="@font/inter_bold"
         android:text="My Cart"
         android:textColor="#222222"
-        android:textSize="20sp"></TextView>
+        android:textSize="20sp"
+></TextView>
 
     <ImageButton
         android:layout_width="20dp"
@@ -22,15 +25,53 @@
         android:background="@drawable/search_icon"
         android:layout_marginTop="21dp"
         android:layout_marginRight="23dp"
-        android:layout_alignParentRight="true"
         android:backgroundTint="#222222"
+android:layout_alignParentRight="true"
         ></ImageButton>
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+android:layout_below="@id/tvl_title"
+        >
+
+
+
+        <ProgressBar
+            android:id="@+id/pb_loading_feed"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:indeterminateTint="@color/theme_text_black"
+            android:layout_gravity="center"
+
+
+            ></ProgressBar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_cart_feed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+        >
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/ll_cart_total"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+
     <RelativeLayout
+        android:id="@+id/ll_cart_total"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-android:layout_alignParentBottom="true"
+app:layout_constraintBottom_toBottomOf="parent"
         android:background="#F4F6F8"
 
         >
@@ -87,5 +128,10 @@ android:layout_below="@id/tvl_cart_total"
             ></androidx.appcompat.widget.AppCompatButton>
 
     </RelativeLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
 
 </RelativeLayout>

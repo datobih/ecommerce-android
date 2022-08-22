@@ -30,6 +30,7 @@ class ProductDetailsActivity : AppCompatActivity() {
     val productDetailViewModel: ProductDetailsViewModel by viewModels()
     var productId:Int=-1
     var quantityCount=0
+    var setResult=false
     override fun onCreate(savedInstanceState: Bundle?) {
 // Set Activity transition
         with(window) {
@@ -88,6 +89,7 @@ class ProductDetailsActivity : AppCompatActivity() {
 
             when(dataState){
                 is DataState.Success->{
+                    setResult=true
                     binding.llAddingLoading.visibility=View.GONE
                     val snackbar=showSnackBar("Successfully added to cart")
                     snackbar.addCallback(object:BaseTransientBottomBar.BaseCallback<Snackbar>(){
@@ -156,6 +158,16 @@ class ProductDetailsActivity : AppCompatActivity() {
             productId
         )
 
+    }
+
+
+    override fun onBackPressed() {
+
+        if(setResult){
+            setResult(Constants.INTENT_SUCCESS_CART_RESULT_CODE)
+            finish()
+        }
+        else super.onBackPressed()
     }
 
     fun setupStars(stars: Int) {

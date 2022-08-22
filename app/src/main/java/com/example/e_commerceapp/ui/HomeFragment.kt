@@ -175,6 +175,8 @@ private  val mainViewModel:MainViewModel by activityViewModels()
 
     }
 
+
+
     fun loadingFeed(){
 
         binding.llProductFeed.visibility=View.GONE

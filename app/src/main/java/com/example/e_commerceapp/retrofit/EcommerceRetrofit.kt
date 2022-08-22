@@ -3,10 +3,7 @@ package com.example.e_commerceapp.retrofit
 import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.Token
 import com.example.e_commerceapp.models.User
-import com.example.e_commerceapp.retrofit.dto.AddToCartDTO
-import com.example.e_commerceapp.retrofit.dto.LoginDTO
-import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
-import com.example.e_commerceapp.retrofit.dto.SignupDTO
+import com.example.e_commerceapp.retrofit.dto.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -34,6 +31,14 @@ interface EcommerceRetrofit {
 
     @POST("products/add-item/")
     fun addProductToCart(@Header("AUTHORIZATION") tokenVal:String, @Body addToCartDTO: AddToCartDTO) :Call<Void>
+
+    @GET("products/get-cart/")
+    fun getCart(@Header("AUTHORIZATION") tokenVal:String):Call<List<OrderItemDTO>>
+
+    @FormUrlEncoded
+    @POST("products/remove-order/")
+    fun removeOrder(@Header("AUTHORIZATION") tokenVal:String, @Field("pk") pk:Int):Call<Void>
+
 
 
 }

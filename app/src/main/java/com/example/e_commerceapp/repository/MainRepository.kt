@@ -8,6 +8,7 @@ import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.retrofit.EcommerceRetrofit
 import com.example.e_commerceapp.retrofit.dto.AddToCartDTO
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
+import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
 import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.UserDataState
@@ -72,6 +73,23 @@ class MainRepository(
 
     }
 
+    fun getCart(tokenHeader: String)=flow<DataState<List<OrderItemDTO>>>{
+
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.getCart(tokenHeader).awaitResponse()
+        if(response.isSuccessful) emit(DataState.Success(response.body()))
+        else emit(DataState.Error())
+    }
+
+
+    fun removeOrder(tokenHeader: String,pk:Int,itemPosition:Int)=flow<DataState<Int>>{
+        emit(DataState.Loading())
+        val response=ecommerceRetrofit.removeOrder(tokenHeader,pk).awaitResponse()
+        if(response.isSuccessful) emit(DataState.Success(itemPosition))
+        else emit(DataState.Error())
+
+    }
 
     fun getUserProfile(tokenVal:String)= flow<DataState<User>> {
         emit(DataState.Loading())
