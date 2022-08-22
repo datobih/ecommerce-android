@@ -6,10 +6,7 @@ import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.Token
 import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.retrofit.EcommerceRetrofit
-import com.example.e_commerceapp.retrofit.dto.AddToCartDTO
-import com.example.e_commerceapp.retrofit.dto.LoginDTO
-import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
-import com.example.e_commerceapp.retrofit.dto.ProductDetailDTO
+import com.example.e_commerceapp.retrofit.dto.*
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.UserDataState
 import kotlinx.coroutines.flow.flow
@@ -87,6 +84,15 @@ class MainRepository(
         emit(DataState.Loading())
         val response=ecommerceRetrofit.removeOrder(tokenHeader,pk).awaitResponse()
         if(response.isSuccessful) emit(DataState.Success(itemPosition))
+        else emit(DataState.Error())
+
+    }
+
+    fun makePayment(tokenHeader: String,password:String)=flow<DataState<MakePaymentResponseDTO>>{
+        emit(DataState.Loading())
+        val response=ecommerceRetrofit.makePayment(tokenHeader,password).awaitResponse()
+
+        if(response.isSuccessful) emit(DataState.Success(response.body()))
         else emit(DataState.Error())
 
     }

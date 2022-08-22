@@ -39,6 +39,8 @@ interface EcommerceRetrofit {
     @POST("products/remove-order/")
     fun removeOrder(@Header("AUTHORIZATION") tokenVal:String, @Field("pk") pk:Int):Call<Void>
 
-
+    @FormUrlEncoded
+    @POST("products/make-payment/")
+    fun makePayment(@Header("AUTHORIZATION") tokenVal:String,@Field("password") password:String):Call<MakePaymentResponseDTO>
 
 }
