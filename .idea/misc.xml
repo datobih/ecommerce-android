@@ -13,6 +13,8 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/confirm_payment_bg.xml" value="0.1" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/filter_drawable.xml" value="0.1" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/home_icon.xml" value="0.1895" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_baseline_account_balance_wallet_24.xml" value="0.199" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.199" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_bx_cart.xml" value="0.1895" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_bxs_home.xml" value="0.16" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_bxs_shopping_bag.xml" value="0.1895" />
@@ -35,6 +37,7 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_product_details.xml" value="0.152" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_signup.xml" value="0.176" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_wish_list.xml" value="0.176" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/fragment_account.xml" value="0.21052631578947367" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/fragment_cart.xml" value="0.152" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/fragment_checkout.xml" value="0.136" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/fragment_home.xml" value="0.2" />

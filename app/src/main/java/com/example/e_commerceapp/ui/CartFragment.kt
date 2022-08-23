@@ -106,7 +106,6 @@ var totalPrice=0
             startActivity(intent,
                 ActivityOptions.makeSceneTransitionAnimation(parentActivity).toBundle())
         }
-
     }
 
     override fun onResume() {
@@ -138,7 +137,7 @@ var totalPrice=0
         for(orderItemDTO in orderListItemDTO){
             totalPrice+=(orderItemDTO.price.toInt()*orderItemDTO.quantity)
         }
-        binding.tvCartTotalPrice.text="NGN ${totalPrice.toString()}"
+        binding.tvCartTotalPrice.text="NGN ${Constants.formatPrice(totalPrice.toString())}"
 
     }
 

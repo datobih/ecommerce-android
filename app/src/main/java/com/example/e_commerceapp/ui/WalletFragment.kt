@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import com.example.e_commerceapp.Constants
 import com.example.e_commerceapp.R
 import com.example.e_commerceapp.databinding.FragmentWalletBinding
 import com.example.e_commerceapp.databinding.TopUpDialogBinding
@@ -55,7 +57,7 @@ class WalletFragment : Fragment() {
                     val user = dataState.data
                     val accountBalanceStr = user!!.accountBalance
                     accountBalance = accountBalanceStr.toInt()
-                    binding.tvAccountBalance.text = "NGN $accountBalance"
+                    binding.tvAccountBalance.text = "NGN ${Constants.formatPrice(accountBalanceStr)}"
 
 
                 }
@@ -114,6 +116,9 @@ class WalletFragment : Fragment() {
                             TopupDTO(topupAmount)
                         )
                     }
+                    else{
+                        toastMessage("Make sure you provide an input and try again")
+                    }
                 }
 
                 btnCancel.setOnClickListener {
@@ -152,5 +157,8 @@ class WalletFragment : Fragment() {
 
     }
 
+    fun toastMessage(message: String){
+        Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show()
+    }
 
 }

@@ -116,6 +116,10 @@ class MainActivity : AppCompatActivity() {
                         return true
 
                     }
+                    R.id.nav_account->{
+                        binding.vpMain.currentItem=3
+                        return true
+                    }
                 }
                 return false
             }

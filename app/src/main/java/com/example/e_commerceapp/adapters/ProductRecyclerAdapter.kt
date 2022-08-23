@@ -3,8 +3,10 @@ package com.example.e_commerceapp.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.compose.ui.unit.Constraints
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.e_commerceapp.Constants
 import com.example.e_commerceapp.databinding.ItemProductBinding
 import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.utils.ProductOnClickListener
@@ -24,7 +26,7 @@ private var productOnClickListener:ProductOnClickListener?= null
         with(holder){
             with(productList[position]){
                 binding.tvProductName.text=title
-                binding.tvProductPrice.text="NGN ${price}"
+                binding.tvProductPrice.text="NGN ${Constants.formatPrice(price)}"
 
                 Glide.with(context)
                     .load("http://10.0.2.2:8000${images[0]}")

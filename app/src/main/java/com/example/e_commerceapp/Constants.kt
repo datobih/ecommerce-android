@@ -15,4 +15,19 @@ object Constants {
     val MAKE_PAYMENT_RESPONSE_INSUFFICIENT_BALANCE="Insufficient balance"
 
 
+    fun formatPrice(price:String):String{
+        val stringBuilderPrice=StringBuilder(price)
+        var count=0
+        for(i in price.lastIndex downTo  0){
+            count++
+            if(count%3==0 &&(i!=0 && i!=price.lastIndex)){
+                count=0
+                stringBuilderPrice.insert(i,",")
+            }
+
+        }
+return stringBuilderPrice.toString()
+
+    }
+
 }

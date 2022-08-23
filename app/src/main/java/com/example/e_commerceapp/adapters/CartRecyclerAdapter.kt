@@ -3,8 +3,10 @@ package com.example.e_commerceapp.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.compose.ui.unit.Constraints
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.e_commerceapp.Constants
 import com.example.e_commerceapp.databinding.ItemCartBinding
 import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
 import com.example.e_commerceapp.utils.CartItemOnClickListener
@@ -24,7 +26,7 @@ class CartRecyclerAdapter(val context: Context,val orderItemDTOList: ArrayList<O
             with(orderItemDTOList[position]){
                 binding.tvProductName.text=title
                 val sumPrice=price.toInt()*quantity
-                binding.tvProductPrice.text="NGN ${sumPrice.toString()}"
+                binding.tvProductPrice.text="NGN ${Constants.formatPrice(sumPrice.toString())}"
                 binding.tvProductCount.text=quantity.toString()
 
                 Glide.with(context)

@@ -60,7 +60,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                     binding.tvRatingValue.text = productDetail!!.averageRating.toString()
                     binding.tvRatingReview.text =
                         "(${productDetail!!.ratingCount.toString()} reviews)"
-                    binding.tvProductPrice.text = "NGN " + productDetail!!.price
+                    binding.tvProductPrice.text = "NGN ${Constants.formatPrice(productDetail!!.price)}"
                     setupStars(productDetail.averageRating)
                     val productImageAdapter = ProductDetailImagesVPAdapter(
                         this,
