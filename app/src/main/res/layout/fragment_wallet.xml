@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.WalletFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
     <TextView
         android:id="@+id/tvl_my_wallet"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/inter_bold"
         android:text="My Wallet"
@@ -22,6 +26,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_wallet_feed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+
+>
+
 
 
 
@@ -40,7 +55,7 @@
         android:text="Balance"
         android:textColor="#828282"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/tvl_my_wallet"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         ></TextView>
@@ -48,7 +63,7 @@
 
 
     <TextView
-        android:id="@+id/tv_cart_total_price"
+        android:id="@+id/tv_account_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NGN2,660,000"
@@ -82,12 +97,12 @@ app:layout_constraintLeft_toLeftOf="parent"
         android:text="Pick a top-up option"
         android:textColor="#828282"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tv_cart_total_price"
+        app:layout_constraintTop_toBottomOf="@id/tv_account_balance"
         app:layout_constraintLeft_toLeftOf="parent"
         ></TextView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_pay_with_profile"
+        android:id="@+id/btn_topup_on_credit"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_centerVertical="true"
@@ -95,12 +110,24 @@ app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="19dp"
         android:background="@drawable/cart_btn_bg"
         android:fontFamily="@font/inter_bold"
-        android:text="Pay with profile balance"
+        android:text="Top up on credit"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/tvl_pick_payment"></androidx.appcompat.widget.AppCompatButton>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/pb_loading_feed"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:indeterminateTint="@color/theme_text_black"
+        android:layout_gravity="center"
+
+
+        ></ProgressBar>
+
+</FrameLayout>

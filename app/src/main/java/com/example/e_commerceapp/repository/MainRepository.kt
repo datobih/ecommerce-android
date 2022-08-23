@@ -97,6 +97,19 @@ class MainRepository(
 
     }
 
+    fun topUpBalance(tokenHeader: String,topupDTO: TopupDTO)=flow<DataState<Void?>>{
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.topUpBalance(tokenHeader,topupDTO).awaitResponse()
+        if(response.isSuccessful) emit((DataState.Success(null)))
+
+        else emit(DataState.Error())
+
+
+
+    }
+
+
     fun getUserProfile(tokenVal:String)= flow<DataState<User>> {
         emit(DataState.Loading())
 

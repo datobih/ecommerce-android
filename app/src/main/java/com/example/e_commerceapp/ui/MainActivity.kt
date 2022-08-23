@@ -111,6 +111,11 @@ class MainActivity : AppCompatActivity() {
                         binding.vpMain.currentItem = 1
                         return true
                     }
+                    R.id.nav_wallet->{
+                        binding.vpMain.currentItem=2
+                        return true
+
+                    }
                 }
                 return false
             }

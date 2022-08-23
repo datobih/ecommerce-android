@@ -10,6 +10,7 @@ import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.repository.MainRepository
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
 import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
+import com.example.e_commerceapp.retrofit.dto.TopupDTO
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.UserDataState
 import com.google.gson.Gson
@@ -30,6 +31,8 @@ class MainViewModel @Inject constructor(
     val productsLiveData:MutableLiveData<DataState<List<Product>>> = MutableLiveData()
     val cartItemsLiveData:MutableLiveData<DataState<List<OrderItemDTO>>> = MutableLiveData()
     val removeOrderLiveData:MutableLiveData<DataState<Int>> = MutableLiveData()
+    val topUpLiveData:MutableLiveData<DataState<Void?>> = MutableLiveData()
+
 
     fun isUserLoggedIn() {
         viewModelScope.launch {
@@ -68,11 +71,11 @@ class MainViewModel @Inject constructor(
                 dataState->
                 profileLiveData.value=dataState
             }
-
         }
-
-
     }
+
+
+
 
 
     fun getCart(tokenHeader: String){
@@ -93,6 +96,21 @@ class MainViewModel @Inject constructor(
             repository.removeOrder(tokenHeader,orderId,itemPosition).collect{
                 dataState->
                 removeOrderLiveData.value=dataState
+            }
+
+        }
+
+
+    }
+
+    fun topUpBalance(tokenHeader: String,topupDTO: TopupDTO){
+
+        viewModelScope.launch {
+            repository.topUpBalance(tokenHeader, topupDTO).collect{
+                dataState->
+
+                topUpLiveData.value=dataState
+
             }
 
         }

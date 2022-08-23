@@ -114,6 +114,9 @@ var totalPrice=0
         super.onResume()
     }
 
+
+
+
     fun setupCartAdapter(orderListItemDTO: List<OrderItemDTO>){
 
         val adapter=CartRecyclerAdapter(mContext,ArrayList(orderListItemDTO))

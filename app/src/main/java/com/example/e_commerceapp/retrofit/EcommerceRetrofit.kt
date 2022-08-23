@@ -43,4 +43,7 @@ interface EcommerceRetrofit {
     @POST("products/make-payment/")
     fun makePayment(@Header("AUTHORIZATION") tokenVal:String,@Field("password") password:String):Call<MakePaymentResponseDTO>
 
+    @POST("account/topup-balance/")
+    fun topUpBalance(@Header("AUTHORIZATION") tokenVal:String,@Body topupDTO: TopupDTO):Call<Void>
+
 }
