@@ -46,4 +46,10 @@ interface EcommerceRetrofit {
     @POST("account/topup-balance/")
     fun topUpBalance(@Header("AUTHORIZATION") tokenVal:String,@Body topupDTO: TopupDTO):Call<Void>
 
+    @FormUrlEncoded
+    @POST("account/update-profile/")
+    fun updateUserDetail(@Header("AUTHORIZATION") tokenVal:String,@Field("fullname") fullname:String,
+    @Field("email") email:String,@Field("address") address:String):Call<Void>
+
+
 }

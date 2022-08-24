@@ -15,20 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ECommerceApp"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.MyProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.SignupActivity"
-            android:exported="false" >
-
-
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ui.LoginActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".ui.WishListActivity"
             android:exported="false" />
@@ -42,19 +39,15 @@
             android:name=".ui.PaymentActivity"
             android:exported="false"
             android:label="@string/title_activity_payment"
-            android:theme="@style/Theme.ECommerceApp.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.ECommerceApp.NoActionBar"></activity>
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data

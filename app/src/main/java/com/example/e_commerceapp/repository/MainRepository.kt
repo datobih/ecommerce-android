@@ -124,6 +124,20 @@ class MainRepository(
 
     }
 
+    fun updateUserProfile(tokenHeader: String,fullname:String,
+    email:String,address:String)=flow<DataState<Void?>>{
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.updateUserDetail(tokenHeader,fullname,
+        email,address).awaitResponse()
+
+        if(response.isSuccessful){
+            emit(DataState.Success(null))
+        }
+        else emit(DataState.Error())
+
+
+    }
 
     fun getUserToken(): String? {
 

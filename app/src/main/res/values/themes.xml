@@ -30,4 +30,11 @@
     <style name="Theme.ECommerceApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.ECommerceApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    
+    <style name="myTitleTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1" >
+
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+    
 </resources>
