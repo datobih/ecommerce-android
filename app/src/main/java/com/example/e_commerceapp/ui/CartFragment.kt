@@ -21,6 +21,7 @@ import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
 import com.example.e_commerceapp.utils.CartItemOnClickListener
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.main
+import com.google.android.material.snackbar.Snackbar
 
 
 class CartFragment : Fragment() {
@@ -62,7 +63,7 @@ var totalPrice=0
                 }
 
                 is DataState.Error->{
-                    doneLoadingFeed()
+                    errorOccured()
                 }
 
                 else->{
@@ -100,12 +101,22 @@ var totalPrice=0
         })
 
         binding.btnCheckout.setOnClickListener {
-            val parentActivity=(mContext as MainActivity)
-            val intent=Intent(parentActivity,PaymentActivity::class.java)
-            intent.putExtra(Constants.INTENT_EXTRA_TOTAL_PRICE,totalPrice)
-            startActivity(intent,
-                ActivityOptions.makeSceneTransitionAnimation(parentActivity).toBundle())
+            if(totalPrice>0) {
+                val parentActivity = (mContext as MainActivity)
+                val intent = Intent(parentActivity, PaymentActivity::class.java)
+                intent.putExtra(Constants.INTENT_EXTRA_TOTAL_PRICE, totalPrice)
+                startActivity(
+                    intent,
+                    ActivityOptions.makeSceneTransitionAnimation(parentActivity).toBundle()
+                )
+            }
+            else showSnackBar("You have no items in your cart")
         }
+
+        binding.btnTryAgain.setOnClickListener {
+            mainViewModel.getCart(mainViewModel.getUserTokenHeader()!!)
+        }
+
     }
 
     override fun onResume() {
@@ -114,7 +125,10 @@ var totalPrice=0
     }
 
 
+    fun showSnackBar(message: String): Snackbar {
+        return Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT)
 
+    }
 
     fun setupCartAdapter(orderListItemDTO: List<OrderItemDTO>){
 
@@ -142,10 +156,17 @@ var totalPrice=0
     }
 
     fun loadingFeed(){
+        binding.llNetworkError.visibility=View.GONE
         binding.llCartFeed.visibility=View.GONE
         binding.pbLoadingFeed.visibility=View.VISIBLE
 
     }
+
+    fun errorOccured(){
+        binding.pbLoadingFeed.visibility=View.GONE
+        binding.llNetworkError.visibility=View.VISIBLE
+    }
+
 
     fun doneLoadingFeed(){
         binding.pbLoadingFeed.visibility=View.GONE

@@ -41,7 +41,7 @@ private val profileViewModel:MyProfileViewModel by viewModels()
                     binding.etEmail.setText(user.email)
                 }
                 is DataState.Error->{
-                doneLoading()
+                errorOccured()
                 }
                 else->{
                     startLoading()
@@ -89,11 +89,22 @@ private val profileViewModel:MyProfileViewModel by viewModels()
 profileViewModel.getUserProfile(profileViewModel.getUserTokenHeader()!!)
 
 
+        binding.btnTryAgain.setOnClickListener {
+            profileViewModel.getUserProfile(profileViewModel.getUserTokenHeader()!!)
+        }
+
     }
 
     fun startLoading(){
+        binding.llNetworkError.visibility=View.GONE
         binding.llProfileDetails.visibility= View.GONE
         binding.pbLoadingFeed.visibility=View.VISIBLE
+
+    }
+
+    fun errorOccured(){
+        binding.pbLoadingFeed.visibility=View.GONE
+        binding.llNetworkError.visibility=View.VISIBLE
 
     }
 

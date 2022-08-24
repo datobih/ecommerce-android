@@ -39,13 +39,13 @@ import com.google.android.material.card.MaterialCardView
 
 class HomeFragment : Fragment() {
 
-lateinit var binding: FragmentHomeBinding
-lateinit var mContext: Context
-lateinit var startActivityIntent: ActivityResultLauncher<Intent>
-private  val mainViewModel:MainViewModel by activityViewModels()
+    lateinit var binding: FragmentHomeBinding
+    lateinit var mContext: Context
+    lateinit var startActivityIntent: ActivityResultLauncher<Intent>
+    private val mainViewModel: MainViewModel by activityViewModels()
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mContext=context
+        mContext = context
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,71 +60,74 @@ private  val mainViewModel:MainViewModel by activityViewModels()
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= FragmentHomeBinding.inflate(inflater,container,false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val animZoomIn=AnimationUtils.loadAnimation(mContext,R.anim.zoom_in)
-        val animZoomOut=AnimationUtils.loadAnimation(mContext,R.anim.zoom_out)
-        var prevIndicator=binding.dotIndicator1
+        val animZoomIn = AnimationUtils.loadAnimation(mContext, R.anim.zoom_in)
+        val animZoomOut = AnimationUtils.loadAnimation(mContext, R.anim.zoom_out)
+        var prevIndicator = binding.dotIndicator1
 
 
-        startActivityIntent=registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
-        object: ActivityResultCallback<ActivityResult>{
-            override fun onActivityResult(result: ActivityResult?) {
-                val parentActivity=(mContext as MainActivity)
-                if(result!!.resultCode==Constants.INTENT_SUCCESS_CART_RESULT_CODE){
-                    parentActivity.binding.bottomNavMain.selectedItemId=R.id.nav_cart
+        startActivityIntent =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult(),
+                object : ActivityResultCallback<ActivityResult> {
+                    override fun onActivityResult(result: ActivityResult?) {
+                        val parentActivity = (mContext as MainActivity)
+                        if (result!!.resultCode == Constants.INTENT_SUCCESS_CART_RESULT_CODE) {
+                            parentActivity.binding.bottomNavMain.selectedItemId = R.id.nav_cart
+                        }
+                    }
+                })
+
+
+        mainViewModel.productsLiveData.observe(viewLifecycleOwner, Observer { dataState ->
+            when (dataState) {
+                is DataState.Success -> {
+                    val productList = dataState.data
+                    setupProductsAdapter(productList!!)
                 }
+
+                is DataState.Error -> {
+                    errorOccured()
+                }
+
+                else -> {
+                    loadingFeed()
+                }
+
+
             }
+
+
         })
 
+        binding.btnTryAgain.setOnClickListener {
+            mainViewModel.getProducts(mainViewModel.getUserTokenHeader()!!)
+        }
 
-        mainViewModel.productsLiveData.observe(viewLifecycleOwner, Observer {
-            dataState->
-            when(dataState){
-                is DataState.Success->{
-                val productList=dataState.data
-                setupProductsAdapter(productList!!)
-                }
+        val categoryList = ArrayList<Category>()
 
-                is DataState.Error->{
-                    (mContext as MainActivity).toastMessage("Something went wrong,try again with good internet connection.")
-                }
-
-                else->{
-                loadingFeed()
-                }
+        categoryList.add(Category("Phones", R.drawable.iphone13))
+        categoryList.add(Category("Accessories", R.drawable.accessories))
+        categoryList.add(Category("Fashion", R.drawable.fashion))
+        categoryList.add(Category("Electronics", R.drawable.electronics))
+        categoryList.add(Category("Laptop", R.drawable.laptops))
 
 
-            }
+        val salesList = ArrayList<Sale>()
+        for (i in 1..3)
+            salesList.add(Sale("40% off", R.drawable.sales_discount_image))
 
 
-        })
-
-        val categoryList=ArrayList<Category>()
-
-        categoryList.add(Category("Phones",R.drawable.iphone13))
-        categoryList.add(Category("Accessories",R.drawable.accessories))
-        categoryList.add(Category("Fashion",R.drawable.fashion))
-        categoryList.add(Category("Electronics",R.drawable.electronics))
-        categoryList.add(Category("Laptop",R.drawable.laptops))
-
-
-
-        val salesList=ArrayList<Sale>()
-        for(i in 1..3)
-            salesList.add(Sale("40% off",R.drawable.sales_discount_image))
-
-
-        val categoryAdapter=CategoryRecyclerAdapter(categoryList)
+        val categoryAdapter = CategoryRecyclerAdapter(categoryList)
 
 
         binding.rvCategories.apply {
-            layoutManager=LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
-            this.adapter=categoryAdapter
+            layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
+            this.adapter = categoryAdapter
 
         }
 
@@ -132,38 +135,37 @@ private  val mainViewModel:MainViewModel by activityViewModels()
 
         binding.vpSales.apply {
 
-            adapter=LatestSalesViewPagerAdapter(salesList)
+            adapter = LatestSalesViewPagerAdapter(salesList)
 
         }
 
-        binding.vpSales.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+        binding.vpSales.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
 
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                when (position){
-                    0->{
+                when (position) {
+                    0 -> {
                         prevIndicator.startAnimation(animZoomOut)
                         prevIndicator.setCardBackgroundColor(getColor(R.color.grey_indicator))
                         binding.dotIndicator1.setCardBackgroundColor(getColor(R.color.black))
                         binding.dotIndicator1.startAnimation(animZoomIn)
-                        prevIndicator=binding.dotIndicator1
+                        prevIndicator = binding.dotIndicator1
                     }
-                    1->{
+                    1 -> {
                         prevIndicator.startAnimation(animZoomOut)
                         prevIndicator.setCardBackgroundColor(getColor(R.color.grey_indicator))
                         binding.dotIndicator2.setCardBackgroundColor(getColor(R.color.black))
                         binding.dotIndicator2.startAnimation(animZoomIn)
-                        prevIndicator=binding.dotIndicator2
+                        prevIndicator = binding.dotIndicator2
                     }
-                    2->{
+                    2 -> {
                         prevIndicator.startAnimation(animZoomOut)
                         prevIndicator.setCardBackgroundColor(getColor(R.color.grey_indicator))
                         binding.dotIndicator3.setCardBackgroundColor(getColor(R.color.black))
                         binding.dotIndicator3.startAnimation(animZoomIn)
-                        prevIndicator=binding.dotIndicator3
+                        prevIndicator = binding.dotIndicator3
                     }
-
 
 
                 }
@@ -176,43 +178,55 @@ private  val mainViewModel:MainViewModel by activityViewModels()
     }
 
 
+    fun loadingFeed() {
+        binding.llNetworkError.visibility=View.GONE
+        binding.llProductFeed.visibility = View.GONE
+        binding.pbLoadingFeed.visibility = View.VISIBLE
 
-    fun loadingFeed(){
+    }
 
-        binding.llProductFeed.visibility=View.GONE
-        binding.pbLoadingFeed.visibility=View.VISIBLE
+    fun doneLoading() {
+        binding.pbLoadingFeed.visibility = View.GONE
+        binding.llProductFeed.visibility = View.VISIBLE
+
+    }
+
+    fun errorOccured(){
+        binding.pbLoadingFeed.visibility = View.GONE
+        binding.llNetworkError.visibility=View.VISIBLE
 
     }
 
 
-
-    fun setupProductsAdapter(productList:List<Product>){
-        binding.llProductFeed.visibility=View.VISIBLE
-        binding.pbLoadingFeed.visibility=View.GONE
-        val productAdapter=ProductRecyclerAdapter(mContext,ArrayList(productList))
-        productAdapter.setProductOnClickListener(object : ProductOnClickListener{
-            override fun onClick(productId:Int) {
-                val parentActivity=(mContext as MainActivity)
-                val intent=Intent(parentActivity,ProductDetailsActivity::class.java)
-                intent.putExtra(Constants.INTENT_EXTRA_PRODUCT_ID,productId)
+    fun setupProductsAdapter(productList: List<Product>) {
+        doneLoading()
+        val productAdapter = ProductRecyclerAdapter(mContext, ArrayList(productList))
+        productAdapter.setProductOnClickListener(object : ProductOnClickListener {
+            override fun onClick(productId: Int) {
+                val parentActivity = (mContext as MainActivity)
+                val intent = Intent(parentActivity, ProductDetailsActivity::class.java)
+                intent.putExtra(Constants.INTENT_EXTRA_PRODUCT_ID, productId)
 //                startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(parentActivity).toBundle())
-                startActivityIntent.launch(intent,ActivityOptionsCompat.makeSceneTransitionAnimation(parentActivity))
+                startActivityIntent.launch(
+                    intent,
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(parentActivity)
+                )
             }
 
 
         })
 
         binding.rvProducts.apply {
-            layoutManager=GridLayoutManager(mContext,2)
+            layoutManager = GridLayoutManager(mContext, 2)
 
-            adapter=productAdapter
+            adapter = productAdapter
 
         }
 
     }
 
-    fun getColor(color:Int):Int{
-       return ContextCompat.getColor(mContext,color)
+    fun getColor(color: Int): Int {
+        return ContextCompat.getColor(mContext, color)
     }
 
 }

@@ -63,8 +63,7 @@ class WalletFragment : Fragment() {
                 }
 
                 is DataState.Error -> {
-                    doneLoading()
-                    showSnackBar("Something went wrong").show()
+                    errorOccured()
                 }
 
                 is DataState.Loading -> {
@@ -132,7 +131,9 @@ class WalletFragment : Fragment() {
 
         }
 
-
+    binding.btnTryAgain.setOnClickListener {
+        mainViewModel.getUserProfile(mainViewModel.getUserTokenHeader()!!)
+    }
     }
 
     override fun onResume() {
@@ -141,9 +142,15 @@ class WalletFragment : Fragment() {
     }
 
     fun startLoading() {
+        binding.llNetworkError.visibility=View.GONE
         binding.llWalletFeed.visibility = View.GONE
         binding.pbLoadingFeed.visibility = View.VISIBLE
 
+    }
+
+    fun errorOccured(){
+        binding.pbLoadingFeed.visibility=View.GONE
+        binding.llNetworkError.visibility=View.VISIBLE
     }
 
 

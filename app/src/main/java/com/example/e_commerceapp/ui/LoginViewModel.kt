@@ -24,9 +24,15 @@ class LoginViewModel @Inject constructor(
 
     fun loginUser(loginDTO: LoginDTO) {
         viewModelScope.launch {
-            repository.loginUser(loginDTO).collect { datastate ->
-            loginLiveData.value=datastate
+            try {
+                repository.loginUser(loginDTO).collect { datastate ->
+                    loginLiveData.value=datastate
+                }
             }
+            catch (e:Exception){
+                loginLiveData.value=DataState.Error()
+            }
+
 
         }
 

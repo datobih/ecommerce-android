@@ -265,4 +265,49 @@ android:visibility="gone"
 
         ></ProgressBar>
 
+    <LinearLayout
+        android:id="@+id/ll_network_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:visibility="gone"
+
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ic_round_signal_cellular_connected_no_internet_4_bar_24"
+            ></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:text="Something went wrong,\ncheck your connection and try again"
+            android:gravity="center"
+            android:textColor="#222222"
+            android:textSize="14sp" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_try_again_bg"
+            android:layout_marginTop="12dp"
+            android:text="Try again"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_bold"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            ></androidx.appcompat.widget.AppCompatButton>
+
+
+
+    </LinearLayout>
+
+
 </FrameLayout>

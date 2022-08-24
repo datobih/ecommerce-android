@@ -72,7 +72,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 }
 
                 is DataState.Error -> {
-
+                    errorOccured()
                 }
 
                 else -> {
@@ -158,6 +158,14 @@ class ProductDetailsActivity : AppCompatActivity() {
             productId
         )
 
+
+        binding.btnTryAgain.setOnClickListener {
+            productDetailViewModel.getProductDetail(
+                productDetailViewModel.getUserTokenHeader()!!,
+                productId
+            )
+        }
+
     }
 
 
@@ -197,9 +205,17 @@ class ProductDetailsActivity : AppCompatActivity() {
 
 
     fun loadingDetail() {
+        binding.llNetworkError.visibility=View.GONE
         binding.llProductDetails.visibility = View.GONE
         binding.pbLoadingDetails.visibility = View.VISIBLE
     }
+
+    fun errorOccured(){
+        binding.llNetworkError.visibility=View.VISIBLE
+
+        binding.pbLoadingDetails.visibility = View.GONE
+    }
+
 
     fun doneLoading() {
         binding.pbLoadingDetails.visibility = View.GONE

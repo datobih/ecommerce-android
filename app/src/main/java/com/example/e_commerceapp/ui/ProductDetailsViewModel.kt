@@ -25,22 +25,31 @@ class ProductDetailsViewModel @Inject constructor(
 
     fun getProductDetail(tokenHeader: String, productId: Int) {
         viewModelScope.launch {
-            repository.getProductDetail(tokenHeader, productId).collect { dataState ->
-                productdetailLiveData.value = dataState
+
+            try{
+                repository.getProductDetail(tokenHeader, productId).collect { dataState ->
+                    productdetailLiveData.value = dataState
+                }
             }
+            catch(e:Exception){
+                productdetailLiveData.value=DataState.Error()
+            }
+
         }
     }
 
     fun addProductToCart(tokenHeader: String,addToCartDTO: AddToCartDTO){
         viewModelScope.launch {
-            repository.addProductToCart(tokenHeader,addToCartDTO).collect{
-                dataState->
-
-
-                productAddCartLiveData.value=dataState
-
-
+            try{
+                repository.addProductToCart(tokenHeader,addToCartDTO).collect{
+                        dataState->
+                    productAddCartLiveData.value=dataState
+                }
             }
+            catch (e:Exception){
+                productAddCartLiveData.value=DataState.Error()
+            }
+
 
 
         }

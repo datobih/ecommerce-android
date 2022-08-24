@@ -36,6 +36,7 @@ class MainViewModel @Inject constructor(
 
     fun isUserLoggedIn() {
         viewModelScope.launch {
+
             repository.validateSession().collect {
                 userLiveData.value = it
             }
@@ -56,10 +57,19 @@ class MainViewModel @Inject constructor(
     fun getProducts(tokenHeader:String){
 
         viewModelScope.launch {
-            repository.getProducts(tokenHeader).collect{
-                    dataState->
-                productsLiveData.value=dataState
+
+            try{
+                repository.getProducts(tokenHeader).collect{
+                        dataState->
+                    productsLiveData.value=dataState
+                }
             }
+            catch (e:Exception){
+
+                productsLiveData.value=DataState.Error()
+
+            }
+
         }
     }
 
@@ -67,10 +77,16 @@ class MainViewModel @Inject constructor(
 
         viewModelScope.launch {
 
-            repository.getUserProfile(tokenVal).collect{
-                dataState->
-                profileLiveData.value=dataState
+            try{
+                repository.getUserProfile(tokenVal).collect{
+                        dataState->
+                    profileLiveData.value=dataState
+                }
             }
+            catch (e:Exception){
+                profileLiveData.value=DataState.Error()
+            }
+
         }
     }
 
@@ -80,10 +96,15 @@ class MainViewModel @Inject constructor(
 
     fun getCart(tokenHeader: String){
         viewModelScope.launch {
-            repository.getCart(tokenHeader).collect{
-                dataState->
-                cartItemsLiveData.value=dataState
 
+            try {
+                repository.getCart(tokenHeader).collect { dataState ->
+                    cartItemsLiveData.value = dataState
+
+                }
+            }
+            catch (e:Exception){
+                cartItemsLiveData.value=DataState.Error()
             }
         }
     }
@@ -93,9 +114,14 @@ class MainViewModel @Inject constructor(
 
         viewModelScope.launch {
 
+            try{
             repository.removeOrder(tokenHeader,orderId,itemPosition).collect{
                 dataState->
                 removeOrderLiveData.value=dataState
+            }
+            }
+            catch (e:Exception){
+                removeOrderLiveData.value=DataState.Error()
             }
 
         }
@@ -106,11 +132,19 @@ class MainViewModel @Inject constructor(
     fun topUpBalance(tokenHeader: String,topupDTO: TopupDTO){
 
         viewModelScope.launch {
+
+            try{
+
+
             repository.topUpBalance(tokenHeader, topupDTO).collect{
                 dataState->
 
                 topUpLiveData.value=dataState
 
+            }
+            }
+            catch (e:Exception){
+                topUpLiveData.value=DataState.Error()
             }
 
         }

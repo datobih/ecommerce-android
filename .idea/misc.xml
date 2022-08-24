@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable-v24/border_btn_bg.xml" value="0.2135" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/bottom_navi_icon_selector.xml" value="0.1895" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/btn_try_again_bg.xml" value="0.1165" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/btn_wish_border_bg.xml" value="0.1" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/cart_btn_bg.xml" value="0.123" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/category_item.xml" value="0.12" />
@@ -25,6 +26,7 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.219" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_plus_minus_btn_bg.xml" value="0.2275" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_round_add_24.xml" value="0.1" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_round_signal_cellular_connected_no_internet_4_bar_24.xml" value="0.1165" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/sales_button_bg.xml" value="0.1" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/search_drawable.xml" value="0.1" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/search_icon.xml" value="0.101" />

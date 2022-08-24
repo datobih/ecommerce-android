@@ -22,10 +22,17 @@ class PurchasedItemsViewModel @Inject constructor(
 
     fun getPurchasedProducts(tokenHeader: String){
         viewModelScope.launch {
-            repository.getPurchasedProducts(tokenHeader).collect{
-                    dataState->
-                purchasedItemsLiveData.value=dataState
 
+            try{
+                repository.getPurchasedProducts(tokenHeader).collect{
+                        dataState->
+                    purchasedItemsLiveData.value=dataState
+
+                }
+            }
+
+            catch (e:Exception){
+                purchasedItemsLiveData.value=DataState.Error()
             }
         }
     }

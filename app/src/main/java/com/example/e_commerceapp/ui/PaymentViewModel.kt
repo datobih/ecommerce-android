@@ -23,12 +23,15 @@ class PaymentViewModel @Inject constructor(
     fun makePayment(tokenHeader:String,password:String){
 
         viewModelScope.launch {
-            repository.makePayment(tokenHeader,password).collect{
-                dataState->
-                makePaymentLiveData.value=dataState
+            try {
+                repository.makePayment(tokenHeader, password).collect { dataState ->
+                    makePaymentLiveData.value = dataState
 
+                }
             }
-
+            catch (e:Exception){
+                makePaymentLiveData.value=DataState.Error()
+            }
 
         }
 

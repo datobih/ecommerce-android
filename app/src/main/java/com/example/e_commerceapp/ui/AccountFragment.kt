@@ -61,8 +61,7 @@ class AccountFragment : Fragment() {
                 }
 
                 is DataState.Error -> {
-                    doneLoading()
-                    showSnackBar("Something went wrong").show()
+                    errorOccured()
                 }
 
                 is DataState.Loading -> {
@@ -85,6 +84,9 @@ class AccountFragment : Fragment() {
             val parentActivity=(mContext as MainActivity)
             startActivity(Intent(parentActivity,PurchasedItemsActivity::class.java))
         }
+        binding.btnTryAgain.setOnClickListener {
+            mainViewModel.getUserProfile(mainViewModel.getUserTokenHeader()!!)
+        }
 
     }
 
@@ -96,6 +98,7 @@ class AccountFragment : Fragment() {
 
 
     fun startLoading(){
+        binding.llNetworkError.visibility=View.GONE
         binding.llAccountFeed.visibility=View.GONE
         binding.pbLoadingFeed.visibility=View.VISIBLE
     }
@@ -103,6 +106,12 @@ class AccountFragment : Fragment() {
     fun doneLoading(){
         binding.llAccountFeed.visibility=View.VISIBLE
         binding.pbLoadingFeed.visibility=View.GONE
+    }
+
+    fun errorOccured(){
+        binding.pbLoadingFeed.visibility=View.GONE
+        binding.llNetworkError.visibility=View.VISIBLE
+
     }
 
 

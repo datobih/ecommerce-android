@@ -16,32 +16,41 @@ import javax.inject.Inject
 class MyProfileViewModel @Inject constructor(
     val repository: MainRepository,
     val savedStateHandle: SavedStateHandle
-) :ViewModel(){
+) : ViewModel() {
 
     val profileLiveData: MutableLiveData<DataState<User>> = MutableLiveData()
-    val updateUserLiveData:MutableLiveData<DataState<Void?>> = MutableLiveData()
+    val updateUserLiveData: MutableLiveData<DataState<Void?>> = MutableLiveData()
 
-    fun getUserProfile(tokenVal:String){
+    fun getUserProfile(tokenVal: String) {
 
         viewModelScope.launch {
+            try {
 
-            repository.getUserProfile(tokenVal).collect{
-                    dataState->
-                profileLiveData.value=dataState
+                repository.getUserProfile(tokenVal).collect { dataState ->
+                    profileLiveData.value = dataState
+                }
+            } catch (e: Exception) {
+                profileLiveData.value = DataState.Error()
             }
         }
     }
 
 
-    fun updateUserDetails(tokenHeader:String,fullname:String,
-    email:String,address:String){
+    fun updateUserDetails(
+        tokenHeader: String, fullname: String,
+        email: String, address: String
+    ) {
 
         viewModelScope.launch {
+            try{
+                repository.updateUserProfile(tokenHeader, fullname, email, address)
+                    .collect { dataState ->
+                        updateUserLiveData.value = dataState
 
-            repository.updateUserProfile(tokenHeader, fullname, email, address).collect{
-                dataState->
-                updateUserLiveData.value=dataState
-
+                    }
+            }
+            catch (e:Exception){
+                updateUserLiveData.value=DataState.Error()
             }
 
 
