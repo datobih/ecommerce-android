@@ -26,6 +26,9 @@ private val profileViewModel:MyProfileViewModel by viewModels()
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setHomeAsUpIndicator(ContextCompat.getDrawable(this,R.drawable.ic_baseline_arrow_back_24))
 
+        binding.actionBar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         profileViewModel.profileLiveData.observe(this, Observer {
             dataState->

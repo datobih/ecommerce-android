@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MyProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/action_bar"
@@ -27,7 +33,7 @@ app:titleTextAppearance="@style/myTitleTextAppearance"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
             android:gravity="center"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:text="Your profile details"
             android:textColor="@color/theme_text_black"
             android:textSize="18sp"
@@ -204,7 +210,8 @@ app:titleTextAppearance="@style/myTitleTextAppearance"
 
 
         ></ProgressBar>
-    
-    
 
+
+
+    </LinearLayout>
 </FrameLayout>

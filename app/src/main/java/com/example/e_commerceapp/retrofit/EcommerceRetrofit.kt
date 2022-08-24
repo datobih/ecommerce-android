@@ -35,6 +35,9 @@ interface EcommerceRetrofit {
     @GET("products/get-cart/")
     fun getCart(@Header("AUTHORIZATION") tokenVal:String):Call<List<OrderItemDTO>>
 
+    @GET("products/get-purchased-products/")
+    fun getPurchasedProducts(@Header("AUTHORIZATION") tokenVal:String):Call<List<OrderItemDTO>>
+
     @FormUrlEncoded
     @POST("products/remove-order/")
     fun removeOrder(@Header("AUTHORIZATION") tokenVal:String, @Field("pk") pk:Int):Call<Void>

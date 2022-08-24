@@ -18,14 +18,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.PurchasedItemsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MyProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SignupActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.LoginActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.WishListActivity"
             android:exported="false" />
@@ -39,7 +42,7 @@
             android:name=".ui.PaymentActivity"
             android:exported="false"
             android:label="@string/title_activity_payment"
-            android:theme="@style/Theme.ECommerceApp.NoActionBar"></activity>
+            android:theme="@style/Theme.ECommerceApp.NoActionBar" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

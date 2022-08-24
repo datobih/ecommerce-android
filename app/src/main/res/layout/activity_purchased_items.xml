@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.PurchasedItemsActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#222222"
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/myTitleTextAppearance"
+        ></androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_purchased_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_purchased_products"
+            tools:itemCount="5"
+            android:visibility="gone"
+            tools:visibility="visible"
+            ></androidx.recyclerview.widget.RecyclerView>
+
+
+
+</LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_loading_feed"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:indeterminateTint="@color/theme_text_black"
+        android:layout_gravity="center"
+
+
+        ></ProgressBar>
+
+</FrameLayout>

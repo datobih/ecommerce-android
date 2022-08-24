@@ -80,6 +80,12 @@ class AccountFragment : Fragment() {
             val parentActivity=(mContext as MainActivity)
             startActivity(Intent(parentActivity,MyProfileActivity::class.java))
         }
+
+        binding.llPurchasedItems.setOnClickListener {
+            val parentActivity=(mContext as MainActivity)
+            startActivity(Intent(parentActivity,PurchasedItemsActivity::class.java))
+        }
+
     }
 
     override fun onResume() {

@@ -79,6 +79,16 @@ class MainRepository(
         else emit(DataState.Error())
     }
 
+    fun getPurchasedProducts(tokenHeader: String)=flow<DataState<List<OrderItemDTO>>>{
+
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.getPurchasedProducts(tokenHeader).awaitResponse()
+        if(response.isSuccessful) emit(DataState.Success(response.body()))
+        else emit(DataState.Error())
+    }
+
+
 
     fun removeOrder(tokenHeader: String,pk:Int,itemPosition:Int)=flow<DataState<Int>>{
         emit(DataState.Loading())

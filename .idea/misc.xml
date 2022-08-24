@@ -14,6 +14,7 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/filter_drawable.xml" value="0.1" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/home_icon.xml" value="0.1895" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_baseline_account_balance_wallet_24.xml" value="0.199" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1295" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.199" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_bx_cart.xml" value="0.1895" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/ic_bxs_home.xml" value="0.16" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_payment.xml" value="0.2" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_payment_completed.xml" value="0.264" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_product_details.xml" value="0.152" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_purchased_items.xml" value="0.21052631578947367" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_signup.xml" value="0.176" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_wish_list.xml" value="0.176" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/fragment_account.xml" value="0.21052631578947367" />
@@ -47,6 +49,7 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_category.xml" value="0.2" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_product.xml" value="0.2692307692307692" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_product_detail_image.xml" value="0.1" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_purchased_products.xml" value="0.20964912280701756" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_sales.xml" value="0.264" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_wish_category.xml" value="0.4" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/item_wish_product.xml" value="0.8" />
