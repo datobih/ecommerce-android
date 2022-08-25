@@ -31,7 +31,7 @@ class PurchasedProductRecyclerAdapter(val context: Context,val orderItemDTOList:
                 binding.tvProductCount.text=quantity.toString()
 
                 com.bumptech.glide.Glide.with(context)
-                    .load("http://10.0.2.2:8000${images[0]}")
+                    .load("${images[0]}")
                     .into(binding.imvProduct)
 
 

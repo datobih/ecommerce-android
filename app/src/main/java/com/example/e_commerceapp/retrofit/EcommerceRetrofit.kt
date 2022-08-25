@@ -18,6 +18,10 @@ interface EcommerceRetrofit {
     @POST("account/create-user/")
     fun createUser(@Body signupDTO: SignupDTO):Call<Void>
 
+    @FormUrlEncoded
+    @POST("auth/verify-email/")
+    fun verifyOTP(@Field("otp") otp:String):Call<Void>
+
     @GET("account/user-data/")
     fun getUserProfile(@Header("AUTHORIZATION") tokenVal:String):Call<User>
 

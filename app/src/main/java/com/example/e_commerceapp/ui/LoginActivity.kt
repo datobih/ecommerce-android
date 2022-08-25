@@ -59,6 +59,15 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        binding.tvSignUp.setOnClickListener {
+            startActivity(Intent(this,SignupActivity::class.java))
+
+        }
+
+        binding.tvOtp.setOnClickListener {
+            startActivity(Intent(this,OTPVerificationActivity::class.java))
+
+        }
 
     }
 
@@ -72,11 +81,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun showLoading() {
         binding.llSignInLoading.visibility = View.VISIBLE
-
-
     }
 
-    private fun hideLoading() {
+    private fun hideLoading(){
         binding.llSignInLoading.visibility = View.GONE
     }
 

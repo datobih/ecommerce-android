@@ -26,6 +26,26 @@ class MainRepository(
         }
 
     }
+    fun verifyOTP(otp:String)=flow<DataState<Void?>>{
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.verifyOTP(otp).awaitResponse()
+
+        if(response.isSuccessful) emit(DataState.Success(null))
+        else emit(DataState.Error())
+
+    }
+
+    fun createUser(signupDTO: SignupDTO)=flow<DataState<Void?>>{
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.createUser(signupDTO).awaitResponse()
+
+        if(response.isSuccessful) emit(DataState.Success(null))
+        else emit(DataState.Error())
+
+
+    }
 
     fun loginUser(loginDTO: LoginDTO) = flow<DataState<Token>> {
         emit(DataState.Loading())

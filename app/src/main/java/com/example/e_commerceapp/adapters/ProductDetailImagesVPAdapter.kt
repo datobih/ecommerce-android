@@ -24,7 +24,7 @@ with(holder){
 
 
     Glide.with(context)
-        .load("http://10.0.2.2:8000${images[position]}")
+        .load("${images[position]}")
         .into(binding.categoryImage)
 
 

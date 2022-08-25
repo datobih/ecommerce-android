@@ -82,7 +82,7 @@ class PaymentActivity : AppCompatActivity() {
 
 
 
-        binding.tvCartTotalPrice.text = "NGN ${totalPrice.toString()}"
+        binding.tvCartTotalPrice.text = "NGN ${Constants.formatPrice(totalPrice.toString())}"
 
 
 

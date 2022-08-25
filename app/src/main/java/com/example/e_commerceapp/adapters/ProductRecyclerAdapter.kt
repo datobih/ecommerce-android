@@ -29,7 +29,7 @@ private var productOnClickListener:ProductOnClickListener?= null
                 binding.tvProductPrice.text="NGN ${Constants.formatPrice(price)}"
 
                 Glide.with(context)
-                    .load("http://10.0.2.2:8000${images[0]}")
+                    .load("${images[0]}")
                     .into(binding.imvProduct)
 
 

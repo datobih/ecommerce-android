@@ -136,6 +136,7 @@
         </androidx.appcompat.widget.AppCompatButton>
 
         <LinearLayout
+            android:id="@+id/ll_signUp_already"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/btn_sign_in"
@@ -156,11 +157,11 @@
                 ></TextView>
 
             <TextView
-                android:id="@+id/tv_sign_up_intent"
+                android:id="@+id/tv_sign_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Sign up"
-                android:fontFamily="@font/inter_regular"
+                android:fontFamily="@font/inter_bold"
                 android:textColor="#222222"
                 android:letterSpacing="0.06"
 
@@ -168,6 +169,43 @@
                 ></TextView>
 
         </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ll_signUp_already"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="21dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have an OTP ?"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="@color/theme_text_black"
+                android:letterSpacing="0.06"
+                android:textSize="14sp"
+                ></TextView>
+
+            <TextView
+                android:id="@+id/tv_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap here"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="#222222"
+                android:letterSpacing="0.06"
+
+                android:textSize="14sp"
+                ></TextView>
+
+        </LinearLayout>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

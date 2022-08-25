@@ -33,9 +33,10 @@
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/drawable/text_input_bg.xml" value="0.101" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/font/.xml" value="0.18703703703703703" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/font/inter_bold.xml" value="0.18703703703703703" />
-        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_login.xml" value="0.152" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_login.xml" value="0.176" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_my_profile.xml" value="0.21052631578947367" />
+        <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_otpverification.xml" value="0.21052631578947367" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_payment.xml" value="0.2" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_payment_completed.xml" value="0.264" />
         <entry key="..\:/Dev/Android_Projects/ECommerceApp/app/src/main/res/layout/activity_product_details.xml" value="0.152" />
