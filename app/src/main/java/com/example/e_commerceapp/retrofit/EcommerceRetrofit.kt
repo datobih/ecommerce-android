@@ -59,4 +59,8 @@ interface EcommerceRetrofit {
     @Field("email") email:String,@Field("address") address:String):Call<Void>
 
 
+    @GET("https://currencyapi-net.p.rapidapi.com/rates?output=JSON&base=USD")
+    fun getCurrentNairaRate(@Header("X-RapidAPI-Key") rapidApiKey:String,
+    @Header("X-RapidAPI-Host") rapidApiHost:String):Call<CurrencyRateDTO>
+
 }

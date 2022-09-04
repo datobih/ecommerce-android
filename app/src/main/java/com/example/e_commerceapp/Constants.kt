@@ -1,5 +1,7 @@
 package com.example.e_commerceapp
 
+import com.example.e_commerceapp.retrofit.dto.CurrencyRateDTO
+
 object Constants {
     val SHARED_PREFERENCE_NAME = "com.example.e_commerceapp.sharedpreference"
     val SHARED_PREFERENCE_TOKEN_ACCESS = "SHARED_PREFERENCE_TOKEN_ACCESS"
@@ -13,7 +15,7 @@ object Constants {
     val MAKE_PAYEMENT_RESPONSE_SUCCESS="Transaction successful"
     val MAKE_PAYMENT_RESPONSE_INVALID_PASSWORD="Invalid password"
     val MAKE_PAYMENT_RESPONSE_INSUFFICIENT_BALANCE="Insufficient balance"
-
+    var currentRate:CurrencyRateDTO?=null
 
 
     fun formatPrice(price:String):String{

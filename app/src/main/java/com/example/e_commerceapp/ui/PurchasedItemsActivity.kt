@@ -58,9 +58,9 @@ class PurchasedItemsActivity : AppCompatActivity() {
 
             }})
 
-
-purchasedItemsViewModel.getPurchasedProducts(purchasedItemsViewModel.getUserTokenHeader()!!)
-
+if(purchasedItemsViewModel.purchasedItemsLiveData.value==null) {
+    purchasedItemsViewModel.getPurchasedProducts(purchasedItemsViewModel.getUserTokenHeader()!!)
+}
     }
     fun startLoading(){
         binding.rvPurchasedItems.visibility= View.GONE

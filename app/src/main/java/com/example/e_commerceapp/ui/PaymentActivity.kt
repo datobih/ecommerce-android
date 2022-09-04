@@ -4,6 +4,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -14,6 +15,17 @@ import com.example.e_commerceapp.R
 import com.example.e_commerceapp.databinding.ActivityPaymentBinding
 import com.example.e_commerceapp.utils.DataState
 import com.google.android.material.snackbar.Snackbar
+import com.paypal.checkout.approve.OnApprove
+import com.paypal.checkout.cancel.OnCancel
+import com.paypal.checkout.createorder.CreateOrder
+import com.paypal.checkout.createorder.CurrencyCode
+import com.paypal.checkout.createorder.OrderIntent
+import com.paypal.checkout.createorder.UserAction
+import com.paypal.checkout.error.OnError
+import com.paypal.checkout.order.Amount
+import com.paypal.checkout.order.AppContext
+import com.paypal.checkout.order.Order
+import com.paypal.checkout.order.PurchaseUnit
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +33,7 @@ class PaymentActivity : AppCompatActivity() {
     lateinit var binding: ActivityPaymentBinding
     private val paymentViewModel: PaymentViewModel by viewModels()
     var isPaymentLoading = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
@@ -29,6 +42,8 @@ class PaymentActivity : AppCompatActivity() {
         val transitionUp = AnimationUtils.loadAnimation(this, R.anim.transition_up)
         val transitionDown = AnimationUtils.loadAnimation(this, R.anim.transition_down)
         val totalPrice = intent.getIntExtra(Constants.INTENT_EXTRA_TOTAL_PRICE, -1)
+
+        val convertedPrice=totalPrice.toFloat()/(Constants.currentRate!!.rates.NGN)
 
         paymentViewModel.makePaymentLiveData.observe(this, Observer { dataState ->
 
@@ -151,6 +166,35 @@ class PaymentActivity : AppCompatActivity() {
             else showSnackBar("Make sure you have inputted your password").show()
 
         }
+
+        binding.paymentButtonContainer.setup(
+            createOrder = CreateOrder{
+                createOrderActions->
+
+                val order= Order(intent=OrderIntent.CAPTURE,
+                appContext = AppContext(userAction = UserAction.PAY_NOW),
+                    purchaseUnitList = listOf(PurchaseUnit(amount =
+                    Amount(CurrencyCode.USD, value = convertedPrice.toString())))
+                )
+
+            createOrderActions.create(order)
+            },
+            onApprove = OnApprove{
+                approval ->
+                approval.orderActions.capture{captureOrderResult ->
+                    Log.i("CaptureOrder","CaptureOrderResult: $captureOrderResult")
+
+                }
+            },
+            onCancel = OnCancel{
+                Log.d("OnCancel", "Buyer canceled the PayPal experience.")
+            },
+            onError = OnError{
+                errorInfo ->
+                Log.d("OnError", "Error: $errorInfo")
+
+            }
+        )
 
 
     }

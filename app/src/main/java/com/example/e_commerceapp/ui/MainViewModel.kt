@@ -8,6 +8,7 @@ import com.example.e_commerceapp.Constants
 import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.User
 import com.example.e_commerceapp.repository.MainRepository
+import com.example.e_commerceapp.retrofit.dto.CurrencyRateDTO
 import com.example.e_commerceapp.retrofit.dto.LoginDTO
 import com.example.e_commerceapp.retrofit.dto.OrderItemDTO
 import com.example.e_commerceapp.retrofit.dto.TopupDTO
@@ -32,6 +33,7 @@ class MainViewModel @Inject constructor(
     val cartItemsLiveData:MutableLiveData<DataState<List<OrderItemDTO>>> = MutableLiveData()
     val removeOrderLiveData:MutableLiveData<DataState<Int>> = MutableLiveData()
     val topUpLiveData:MutableLiveData<DataState<Void?>> = MutableLiveData()
+    val currencyRateLiveData:MutableLiveData<DataState<CurrencyRateDTO>> = MutableLiveData()
 
 
     fun isUserLoggedIn() {
@@ -107,6 +109,27 @@ class MainViewModel @Inject constructor(
                 cartItemsLiveData.value=DataState.Error()
             }
         }
+    }
+
+    fun getCurrencyRate(){
+
+        viewModelScope.launch {
+            try {
+                repository.getCurrencyRate().collect(){
+                    dataState->
+
+                    currencyRateLiveData.value=dataState
+
+                }
+
+            }
+            catch (e:Exception){
+                currencyRateLiveData.value=DataState.Error()
+            }
+
+
+        }
+
     }
 
 

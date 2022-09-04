@@ -1,6 +1,7 @@
 package com.example.e_commerceapp.repository
 
 import android.content.SharedPreferences
+import com.example.e_commerceapp.CREDENTIAL_CONSTS
 import com.example.e_commerceapp.Constants
 import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.Token
@@ -43,6 +44,20 @@ class MainRepository(
 
         if(response.isSuccessful) emit(DataState.Success(null))
         else emit(DataState.Error())
+
+
+    }
+
+    fun getCurrencyRate()=flow<DataState<CurrencyRateDTO>>{
+        emit(DataState.Loading())
+
+        val response=ecommerceRetrofit.getCurrentNairaRate(CREDENTIAL_CONSTS.RAPID_API_KEY,CREDENTIAL_CONSTS.CURRENCY_API_HOST).awaitResponse()
+        if(response.isSuccessful){
+            emit(DataState.Success(response.body()!!))
+        }
+        else{
+            emit(DataState.Error())
+        }
 
 
     }

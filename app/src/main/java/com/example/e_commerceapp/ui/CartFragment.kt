@@ -4,6 +4,7 @@ import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -100,6 +101,27 @@ var totalPrice=0
 
         })
 
+        mainViewModel.currencyRateLiveData.observe(viewLifecycleOwner, Observer {
+            dataState->
+            when(dataState){
+                is DataState.Success->{
+                    Constants.currentRate=dataState.data
+                    mainViewModel.getCart(mainViewModel.getUserTokenHeader()!!)
+
+                }
+
+                is DataState.Error->{
+                    errorOccured()
+
+                }
+
+                is DataState.Loading->{
+                    loadingFeed()
+                }
+            }
+
+        })
+
         binding.btnCheckout.setOnClickListener {
             if(totalPrice>0) {
                 val parentActivity = (mContext as MainActivity)
@@ -114,13 +136,16 @@ var totalPrice=0
         }
 
         binding.btnTryAgain.setOnClickListener {
-            mainViewModel.getCart(mainViewModel.getUserTokenHeader()!!)
+            if(Constants.currentRate!=null) mainViewModel.getCart(mainViewModel.getUserTokenHeader()!!)
+            else mainViewModel.getCurrencyRate()
         }
 
     }
 
     override fun onResume() {
-        mainViewModel.getCart(mainViewModel.getUserTokenHeader()!!)
+        if(Constants.currentRate!=null) mainViewModel.getCart(mainViewModel.getUserTokenHeader()!!)
+        else mainViewModel.getCurrencyRate()
+
         super.onResume()
     }
 
