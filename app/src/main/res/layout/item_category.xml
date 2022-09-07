@@ -13,7 +13,7 @@
         >
 
         <ImageView
-            android:id="@+id/category_image"
+            android:id="@+id/tv_category_image"
             android:layout_width="42dp"
             android:layout_height="59dp"
 
@@ -23,6 +23,7 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/tv_category_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Phones"

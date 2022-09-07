@@ -34,6 +34,7 @@ import com.example.e_commerceapp.databinding.FragmentHomeBinding
 import com.example.e_commerceapp.models.Category
 import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.models.Sale
+import com.example.e_commerceapp.utils.CategoryOnClickListener
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.ProductOnClickListener
 import com.example.e_commerceapp.utils.main
@@ -117,7 +118,7 @@ class HomeFragment : Fragment() {
         categoryList.add(Category("Accessories", R.drawable.accessories))
         categoryList.add(Category("Fashion", R.drawable.fashion))
         categoryList.add(Category("Electronics", R.drawable.electronics))
-        categoryList.add(Category("Laptop", R.drawable.laptops))
+        categoryList.add(Category("Laptops", R.drawable.laptops))
 
 
         val salesList = ArrayList<Sale>()
@@ -126,7 +127,12 @@ class HomeFragment : Fragment() {
 
 
         val categoryAdapter = CategoryRecyclerAdapter(categoryList)
+        categoryAdapter.categoryOnClickListener=object :CategoryOnClickListener{
+            override fun onClick(category: Category) {
+                ((binding.rvProducts.adapter) as ProductRecyclerAdapter).filterCategory(category)
+            }
 
+        }
 
         binding.rvCategories.apply {
             layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
@@ -184,7 +190,7 @@ class HomeFragment : Fragment() {
 
             Log.i("ON_SEARCH_CHANGED", it.toString())
             ((binding.rvProducts.adapter) as ProductRecyclerAdapter).let {
-                it.filterObj.filter(text)
+                it.searchFilter.filter(text)
             }
         }
 

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.e_commerceapp.Constants
 import com.example.e_commerceapp.databinding.ItemProductBinding
+import com.example.e_commerceapp.models.Category
 import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.utils.ProductOnClickListener
 
@@ -55,7 +56,7 @@ holder.binding.root.setOnClickListener {
     }
 
 
-    public val filterObj=object :Filter(){
+    public val searchFilter=object :Filter(){
         override fun performFiltering(input: CharSequence?): FilterResults {
             val filterResults=FilterResults()
             val query=input.toString().lowercase().trim()
@@ -89,7 +90,21 @@ holder.binding.root.setOnClickListener {
 
     }
 
+   fun filterCategory(category: Category){
 
+
+       val filteredList=completeProductList.filter {
+           filter->
+           filter.category == category.name
+       }
+
+       productList.clear()
+       productList.addAll(filteredList)
+       notifyDataSetChanged()
+
+
+
+   }
 
 fun setProductOnClickListener(productOnClickListener: ProductOnClickListener){
     this.productOnClickListener=productOnClickListener

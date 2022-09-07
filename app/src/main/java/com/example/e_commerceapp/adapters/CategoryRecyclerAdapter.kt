@@ -9,8 +9,10 @@ import com.example.e_commerceapp.R
 import com.example.e_commerceapp.databinding.ItemCategoryBinding
 import com.example.e_commerceapp.models.Category
 import com.example.e_commerceapp.ui.MainActivity
+import com.example.e_commerceapp.utils.CategoryOnClickListener
 
 class CategoryRecyclerAdapter(val categoryList: ArrayList<Category>):RecyclerView.Adapter<CategoryRecyclerAdapter.CategoryViewHolder>(){
+    lateinit var categoryOnClickListener: CategoryOnClickListener
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val binding=ItemCategoryBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return CategoryViewHolder(binding)
@@ -19,9 +21,16 @@ class CategoryRecyclerAdapter(val categoryList: ArrayList<Category>):RecyclerVie
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
        with(holder){
            with(categoryList[position]){
-               binding.categoryImage.setImageResource(image)
+               binding.tvCategoryName.text=categoryList[position].name
+               binding.tvCategoryImage.setImageResource(image)
+           }
+
+           binding.root.setOnClickListener {
+               categoryOnClickListener?.onClick(categoryList[position])
            }
        }
+
+
 
     }
 
@@ -33,3 +42,7 @@ class CategoryRecyclerAdapter(val categoryList: ArrayList<Category>):RecyclerVie
 
 
 }
+
+
+
+
