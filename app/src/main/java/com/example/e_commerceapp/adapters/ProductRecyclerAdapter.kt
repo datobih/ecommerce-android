@@ -3,6 +3,9 @@ package com.example.e_commerceapp.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
+import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.Constraints
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -12,8 +15,16 @@ import com.example.e_commerceapp.models.Product
 import com.example.e_commerceapp.utils.ProductOnClickListener
 
 class ProductRecyclerAdapter(val context: Context,val productList: ArrayList<Product>):
-RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>(){
+RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>(),Filterable{
 private var productOnClickListener:ProductOnClickListener?= null
+    var completeProductList=ArrayList<Product>()
+
+
+    init {
+        completeProductList.addAll(productList)
+
+    }
+
 
     class ProductViewHolder(val binding:ItemProductBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -41,10 +52,44 @@ holder.binding.root.setOnClickListener {
 
 }
         }
+    }
 
+
+    public val filterObj=object :Filter(){
+        override fun performFiltering(input: CharSequence?): FilterResults {
+            val filterResults=FilterResults()
+            val query=input.toString().lowercase().trim()
+
+            if(query.isNullOrEmpty()){
+                filterResults.values=completeProductList
+                return filterResults
+            }
+            else{
+
+                val filteredList=completeProductList.filter {
+                    filter-> filter.title.lowercase().contains(query)
+
+                }
+                filterResults.values=filteredList
+                return filterResults
+            }
+
+        }
+
+        override fun publishResults(p0: CharSequence?, result: FilterResults?) {
+            productList.clear()
+
+            productList.addAll(result?.values as ArrayList<Product>)
+
+            notifyDataSetChanged()
+
+
+        }
 
 
     }
+
+
 
 fun setProductOnClickListener(productOnClickListener: ProductOnClickListener){
     this.productOnClickListener=productOnClickListener
@@ -52,6 +97,10 @@ fun setProductOnClickListener(productOnClickListener: ProductOnClickListener){
 
     override fun getItemCount(): Int {
         return productList.size
+    }
+
+    override fun getFilter(): Filter {
+        TODO("Not yet implemented")
     }
 
 }

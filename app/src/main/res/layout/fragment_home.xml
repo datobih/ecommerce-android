@@ -65,7 +65,9 @@
         android:textSize="12sp"
         android:drawableLeft="@drawable/search_drawable"
         android:paddingLeft="20dp"
-
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:singleLine="true"
         ></EditText>
 
     <ImageButton
