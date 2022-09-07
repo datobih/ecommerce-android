@@ -11,6 +11,7 @@ import com.example.e_commerceapp.retrofit.dto.*
 import com.example.e_commerceapp.utils.DataState
 import com.example.e_commerceapp.utils.UserDataState
 import kotlinx.coroutines.flow.flow
+import retrofit2.Response
 import retrofit2.awaitResponse
 
 class MainRepository(
@@ -154,6 +155,14 @@ class MainRepository(
 
     }
 
+
+    suspend fun validatePayment(tokenHeader: String):Response<Void>{
+
+        val response=ecommerceRetrofit.validatePayment(tokenHeader).awaitResponse()
+        return response
+
+
+    }
 
     fun getUserProfile(tokenVal:String)= flow<DataState<User>> {
         emit(DataState.Loading())

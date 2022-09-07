@@ -57,10 +57,7 @@ class PaymentActivity : AppCompatActivity() {
                     when(dataState.data!!.message){
                         Constants.MAKE_PAYEMENT_RESPONSE_SUCCESS->{
 
-                            startActivity(
-                                Intent(this,PaymentCompletedActivity::class.java),
-                            ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-                            finish()
+                         purchaseSuccessful()
                         }
 
                         Constants.MAKE_PAYMENT_RESPONSE_INSUFFICIENT_BALANCE->{
@@ -95,7 +92,17 @@ class PaymentActivity : AppCompatActivity() {
 
         })
 
+        paymentViewModel.validatePaymentLiveData.observe(this, Observer {
+            response->
+            if(response!=null){
+                if(response.isSuccessful){
+                    purchaseSuccessful()
+                }
 
+
+            }
+
+        })
 
         binding.tvCartTotalPrice.text = "NGN ${Constants.formatPrice(totalPrice.toString())}"
 
@@ -197,6 +204,14 @@ class PaymentActivity : AppCompatActivity() {
         )
 
 
+    }
+
+    fun purchaseSuccessful(){
+
+        startActivity(
+            Intent(this,PaymentCompletedActivity::class.java),
+            ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+        finish()
     }
 
     fun showSnackBar(message:String): Snackbar {

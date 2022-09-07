@@ -9,6 +9,7 @@ import com.example.e_commerceapp.retrofit.dto.MakePaymentResponseDTO
 import com.example.e_commerceapp.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,7 +19,7 @@ class PaymentViewModel @Inject constructor(
 ):ViewModel() {
 
     val makePaymentLiveData:MutableLiveData<DataState<MakePaymentResponseDTO>> = MutableLiveData()
-
+    val validatePaymentLiveData:MutableLiveData<Response<Void>> = MutableLiveData()
 
     fun makePayment(tokenHeader:String,password:String){
 
@@ -35,6 +36,16 @@ class PaymentViewModel @Inject constructor(
 
         }
 
+
+    }
+
+    fun validatePayment(){
+
+        viewModelScope.launch {
+            validatePaymentLiveData.value=repository.validatePayment(getUserTokenHeader()!!)
+
+
+        }
 
     }
 

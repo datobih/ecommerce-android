@@ -58,6 +58,8 @@ interface EcommerceRetrofit {
     fun updateUserDetail(@Header("AUTHORIZATION") tokenVal:String,@Field("fullname") fullname:String,
     @Field("email") email:String,@Field("address") address:String):Call<Void>
 
+    @GET("products/validate-payment/")
+    fun validatePayment(@Header("AUTHORIZATION") tokenVal:String):Call<Void>
 
     @GET("https://currencyapi-net.p.rapidapi.com/rates?output=JSON&base=USD")
     fun getCurrentNairaRate(@Header("X-RapidAPI-Key") rapidApiKey:String,
