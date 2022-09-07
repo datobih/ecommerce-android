@@ -189,6 +189,7 @@ class PaymentActivity : AppCompatActivity() {
             onApprove = OnApprove{
                 approval ->
                 approval.orderActions.capture{captureOrderResult ->
+                    paymentViewModel.validatePayment()
                     Log.i("CaptureOrder","CaptureOrderResult: $captureOrderResult")
 
                 }
